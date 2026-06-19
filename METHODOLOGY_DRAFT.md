@@ -28,12 +28,23 @@
 * **2a. Python Baseline Preprocessing (Syntactic Cleaning)**  
   * **Tools**: Python (`pandas`, `country_mapping.py module`).  
   * **Targets**: `cities.csv`, `countries.csv`, `publishers.csv`.  
-  * **Logic**: Executing canonical character normalization, including trimming leading/trailing whitespaces, collapsing internal duplicate spaces, and converting name strings to Title Case for syntactic alignment. Country codes are mapped to standardized English country names using the `country_mapping` module, which consolidates regional variants (e.g., England, Scotland) under sovereign entities and isolates ambiguous codes (Unknown).  
+  * **Logic**: 
+    * **Cities**: Multi-stage syntactic normalization addressing historical MARC metadata: (1) multilingual "place unknown" consolidation to Unknown; (2) iterative removal of publication prefixes (A, Tot, et se vend, Herdruckt); (3) MARC editorial symbol stripping; (4) Latin inflection mapping (Parisiis→Paris, Bruxellis→Bruxelles); (5) whitespace normalization and Title Case with preservation of hyphenated place names. Dual-column retention of city_name_raw and city_name_cleaned preserves relational integrity. Output: 270 raw-to-cleaned mappings consolidated into 238 unique canonical forms.
+    * **Countries**: MARC 21 codes mapped to standardized English country names using the `country_mapping` module, consolidating regional variants (England, Scotland→United Kingdom) and isolating ambiguous codes (Unknown).
+    * **Publishers**: [To be added in subsequent updates]
+  * **Outputs**: `cities_cleaned_step2a.csv` (238 unique cities); `country_mapping.py` (30 standardized country names); `publishers_cleaned_step2a.csv` (pending).
+ 
 * **2b. OpenRefine Semantic Enrichment (Targeted Entity Reconciliation)**  
   * **Tools**: OpenRefine, Wikidata Reconciliation Service.  
   * **Targets**: Pre-processed entity arrays (`cities.csv`, `publishers.csv`). *Note: `countries.csv` is bypassed in this step to optimize processing efficiency, as MARC 044 codes have already been mapped to human-readable names during Step 2a preprocessing.*
   * **Logic**:  
-    * **Geospatial Reconciliation & Enrichment (Cities)**: Historical place names are standardized (e.g., *Gent* → *Ghent*) and matched against unique Wikidata Q-identifiers.Through this semantic alignment, canonical geographical attributes, geographic coordinates (`latitude`, `longitude`) are programmatically harvested via the Wikidata API to enable micro-geospatial visualization.  
+    * **Geospatial Reconciliation & Enrichment (Cities)**:
+    Using OpenRefine, standardized names were mapped to unique Wikidata Q-identifiers. This involved a manual disambiguation workflow to resolve homonyms (e.g., distinguishing between administrative municipalities and local infrastructure) and correct ambiguous matches.
+
+    For entities lacking valid Wikidata matches or geospatial attributes, latitude and longitude values were intentionally preserved as `null` to maintain data integrity and prevent programmatic speculation on uncertain geospatial locations. Canonical coordinates were harvested via the Wikidata API to establish a unified framework for micro-geospatial visualization.
+
+    **Results**: Of the 270 processed entries, 262 were successfully reconciled with Wikidata entities and assigned authoritative geospatial coordinates, consolidating multiple orthographic variants (e.g., Brussels, Bruxelles, Bruxellae) into unified identifiers. The remaining 8 unmatched entries retain null coordinates and are filtered from subsequent geospatial visualization.
+    
     * **Authority Control (Publishers)**: All publishers extracted from fields `100/110/700/710/720 $a` (where `$4="pbl"`) are submitted to Wikidata reconciliation. High-frequency publishers (typically those appearing 5+ times in the collection) are successfully matched against Wikidata Q-identifiers and use the canonical authority name. Low-frequency or regionally-specific publishers that fail reconciliation are preserved as raw MARC strings, maintaining bibliographical completeness and preventing historical erasure of minor publishing houses.  
 * **Outputs**: `cities_cleaned.csv` (enriched with geospatial coordinates) and `publishers_cleaned.csv` (standardized names under authority control).
 
