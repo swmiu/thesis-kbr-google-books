@@ -50,16 +50,24 @@
 
 #### **STEP 3: INTEGRATE (Relational Data Pipeline Merging)**
 
-* **Input Data**: 7 relational and enriched CSV tables derived from Steps 1 & 2 (`books.csv`, `book_cities.csv`, `cities_cleaned.csv`, `book_countries.csv`, `countries.csv`, `book_publishers.csv`, `publishers_cleaned.csv`).  
+* **Input Data**: 7 relational and enriched CSV tables derived from Steps 1 & 2 (`books.csv`, `book_cities.csv`, `cities_cleaned.csv`, `book_countries.csv`, `countries.csv`, `book_publishers.csv`, `publishers_cleaned.csv`), and the Python reference module country_mapping.py.  
 * **Development Tools**: Python (`pandas`).  
 * **Country Code Reference Dictionary**: MARC 21 044 country codes (2–3 character format) are resolved against the Library of Congress country code registry ([https://www.loc.gov/marc/countries/cou\_home.html](https://www.loc.gov/marc/countries/cou_home.html)). All codes present in the dataset are manually verified and mapped to canonical country names in a reference dictionary, ensuring complete geographical resolution without loss of provenance.  
-* **Merging & Integration Workflow**:  
-  1. **Geospatial Join**: Merge the bridge table `book_cities.csv` with the enriched `cities_cleaned.csv` (`on='city_name'`), appending the harvested `latitude` and `longitude` coordinates.  
+* **Merging & Integration Workflow**:
+To ensure data integrity during the integration of authority-controlled entities (Publishers and Cities), a two-stage chain-merge strategy is implemented for cities and publishers:  
+  1. **Geospatial Join**: First, join books.csv with `book_cities.csv` (`on='book_id'`). Second, merge the resulting dataset with `cities_cleaned.csv` (`left_on='city_name', right_on='city_name_raw'`), appending the harvested `latitude`, `longitude`, and `wikidata_id` coordinates.  
   2. **Core Catalog Join**: Bind the resulting geospatial subset to the primary bibliographic database `books.csv` using the unified `book_id` (`on='book_id'`).  
-  3. **Geopolitical Mapping**: Map the multi-valued `book_countries.csv` bridge table to the `countries.csv` reference dictionary to resolve MARC 044 codes into human-readable country names, then merge into the core catalog (`on='book_id'`).   
-  4. **Authority Network Join**: Incorporate the multi-valued corporate/personal entity network by joining `book_publishers.csv` and compiling it against `publishers_cleaned.csv` (`on='book_id'`).  
-* **Data Dimension Strategy**: To preserve the multifaceted nature of the library metadata, the final convergence deliberately adopts a **denormalized flattened structure**. When a single bibliographic entity contains co-publications across multiple cities or involves co-publishers, the relational join expands the record into multiple distinct rows.  
-* **Outputs**: `data_for_visualization.csv` (An integrated, relational wide analytical dataset structured by the unified `book_id`(IDN) from field 001, containing: `book_id`, `title`, `year`, `language`, `city_name`, `country_name`, `latitude`, `longitude`, `publisher_name`).
+  3. **Geopolitical Mapping**: Map the multi-valued `book_countries.csv` bridge table against the `country_mapping.py` dictionary to resolve MARC 044 codes into human-readable country names, then merge into the core catalog (`on='book_id'`).
+  4. **Authority Network Join**: First, join `books.csv` with `book_publishers.csv` (`on='book_id'`). Second, merge the resulting dataset with `publishers_cleaned.csv` (`left_on='publisher_name', right_on='publisher_name_raw'`), incorporating the multi-valued corporate/personal entity network.
+* **Data Dimension Strategy**: 
+  To preserve the multifaceted nature of library metadata, this pipeline generates five modular, domain-specific analytical tables rather than a single denormalized table. This prevents cartesian product inflation (where multi-valued fields like cities and publishers would cause row count distortion).
+  * **Pipeline 1**: Year Analytics (Temporal Dimension): Standardizes `year` via casting to `Int64`, filtering invalid NULL/zero entries. Produces a 987-record dataset (1602–1901) for frequency distribution.
+  * **Pipeline 2**: Language Analytics (Linguistic Dimension): Direct extraction from field 041 $a; categorizes multi-lingual records as "multiple languages" per Europeana conventions.
+  * **Pipeline 3**: Country Analytics (Geopolitical Dimension): Aggregates 1,014 one-to-many relationships, identifying 26 unique countries. Multi-country publications are preserved as distinct rows to represent co-publication networks.
+  * **Pipeline 4**: Publisher Analytics (Commercial Dimension): Syntactic cleaning applied to 476 authority-controlled relationships. 1,024-row dataset maintains multi-publisher associations, preserving the commercial diversity of the collection.
+  * **Pipeline 5**: City Analytics (Geospatial Dimension): 1,073-row dataset mapping raw MARC locations to standardized Wikidata coordinates. 98% geospatial coverage (1,052/1,073) enables precise cartographic representation. 
+
+* **Outputs**: 6 integrated analytical CSVs in `data/integrated/` (`year_analytical.csv`, `language_analytical.csv`, `country_analytical.csv`, `publisher_analytical.csv`, `city_analytical.csv`, `city_map_filtered.csv`).
 
 #### **STEP 4: VISUALIZE (Multi-dimensional Dashboard Generation)**
 
