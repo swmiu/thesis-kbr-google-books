@@ -1,5 +1,17 @@
 ### **Data Pipeline: From MARCXML to Geospatial-Temporal Visualization**
 
+#### **STEP 0: SAMPLE (Proportional Stratified Sampling)**
+
+* **Input Data**: Master operational repository file `0423_all_works_GB.csv` containing the comprehensive holdings selected for the digitization initiative.
+* **Development Tools**: Python (`pandas`).
+* **Sampling & Cleaning Heuristics**:
+  * **Data Integrity & De-duplication**: Primary de-duplication is enforced prior to stratification. The pipeline filters redundant entries strictly based on the unique Identification Number (`IDN`) control column, retaining exclusively the first system record occurrence to secure statistical validity.
+  * **Proportional Stratification**: To ensure a representative subset that accurately preserves the distribution characteristics of the master inventory, a target collection size of $N=1,000$ records is established. The sample allocation is mathematically partitioned according to the historical ratio between library cohorts: **81% for general holdings (`M-SLZ`, $n=810$)** and **19% for rare/precious physical entities (`M-RP`, $n=190$)**.
+  * **Algorithmic Reproducibility**: To guarantee identical output serialization across different programmatic runtime execution runs, a fixed pseudo-random number generator (PRNG) seed is bound to the process via `random_state=42`.
+  * **Automated Quality Assurance (QA)**: Post-generation pipeline evaluation is managed algorithmically to assert three strict formatting parameters: (1) exact match of the global sample bound ($N=1,000$ items), (2) zero record key collision (uniqueness set verification), and (3) alphanumeric pattern matching scans (filtering potential scientific notation conversion bugs or floating-point formatting drift like `.`, `+`, or `E`) to verify that all output tokens remain pristine integer keys.
+* **Outputs**: `Q1_kbr_idn_list.txt` (a single-column, newline-delimited operational plain-text payload mapping the 1,000 sampled internal identifiers).
+
+
 #### **STEP 1: EXTRACT (XML to Relational CSVs)**
 
 * **Input Data**: `0506_Q1_metadata.xml` (1,000 historical bibliographic records in KBR MARCXML format).  
