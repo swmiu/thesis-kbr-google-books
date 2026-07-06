@@ -91,7 +91,7 @@ function loadPage(pageName) {
                 <h1>Temporal Framework: Year Distribution</h1>
             </div>
             <div class="chart-container">
-                <iframe src="../data/visualizations/year_distribution.html" title="Year Distribution Chart"></iframe>
+                <iframe src="data/visualizations/year_distribution.html" title="Year Distribution Chart"></iframe>
             </div>
             <div class="chart-description">
                 <h3>Year Distribution</h3>
@@ -104,7 +104,7 @@ function loadPage(pageName) {
                 <h1>Linguistic Diversity: Language Distribution</h1>
             </div>
             <div class="chart-container">
-                <iframe src="../data/visualizations/language_distribution.html" title="Language Distribution Chart"></iframe>
+                <iframe src="data/visualizations/language_distribution.html" title="Language Distribution Chart"></iframe>
             </div>
             <div class="chart-description">
                 <h3>Language Distribution</h3>
@@ -118,7 +118,7 @@ function loadPage(pageName) {
                 <h1>Publisher Analysis: Market Share</h1>
             </div>
             <div class="chart-container">
-                <iframe src="../data/visualizations/publisher_treemap.html" title="Publisher Treemap Chart"></iframe>
+                <iframe src="data/visualizations/publisher_treemap.html" title="Publisher Treemap Chart"></iframe>
             </div>
             <div class="chart-description">
                 <h3>Publisher Market Share</h3>
@@ -131,7 +131,7 @@ function loadPage(pageName) {
                 <h1>Publisher Analysis: Language Profile</h1>
             </div>
             <div class="chart-container">
-                <iframe src="../data/visualizations/publisher_language_bar.html" title="Publisher Language Distribution Chart"></iframe>
+                <iframe src="data/visualizations/publisher_language_bar.html" title="Publisher Language Distribution Chart"></iframe>
             </div>
             <div class="chart-description">
                 <h3>Publisher Language Profile</h3>
@@ -144,7 +144,7 @@ function loadPage(pageName) {
                 <h1>Geospatial Scope: Country Distribution</h1>
             </div>
             <div class="chart-container">
-                <iframe src="../data/visualizations/country_distribution.html" title="Country Distribution Chart"></iframe>
+                <iframe src="data/visualizations/country_distribution.html" title="Country Distribution Chart"></iframe>
             </div>
             <div class="chart-description">
                 <h3>Country Distribution</h3>
@@ -158,7 +158,7 @@ function loadPage(pageName) {
                 <h1>Geospatial Scope: Publishing Hubs</h1>
             </div>
             <div class="chart-container">
-                <iframe src="../data/visualizations/cities_map.html" title="Cities Map" style="height: 700px;"></iframe>
+                <iframe src="data/visualizations/cities_map.html" title="Cities Map" style="height: 700px;"></iframe>
             </div>
             <div class="chart-description">
                 <h3>Publishing Hubs</h3>
