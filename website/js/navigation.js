@@ -203,4 +203,15 @@ function loadPage(pageName) {
     };
     
     pageContent.innerHTML = pages[pageName] || '<h1>Page not found</h1>';
+
+    // Trigger Plotly responsive resize after iframe loads
+    const iframes = pageContent.querySelectorAll('iframe');
+    iframes.forEach(iframe => {
+        iframe.onload = function() {
+            try {
+                iframe.contentWindow.dispatchEvent(new Event('resize'));
+            } catch(e) {}
+        };
+    });
+
 }
