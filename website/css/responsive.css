@@ -1,0 +1,126 @@
+/* Responsive Design: Media queries for mobile and tablet */
+
+/* Tablet: 768px - 1023px */
+@media (max-width: 1023px) {
+    .sidebar {
+        width: 200px;
+    }
+    
+    .content-area {
+        padding: 30px;
+    }
+    
+    .header-title {
+        font-size: 18px;
+    }
+
+    /* Banner: use mobile height on tablet */
+    .page-banner {
+        height: 200px;
+        margin: -30px -30px 30px -30px;
+    }
+
+    .page-banner h1 {
+        font-size: 28px;
+    }
+}
+
+/* Mobile: < 768px */
+@media (max-width: 767px) {
+    .hamburger-btn {
+        display: flex;
+    }
+    
+    .sidebar {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        max-width: 250px;
+        height: calc(100vh - var(--header-height));
+        z-index: 99;
+        transform: translateX(-100%);
+        transition: transform var(--transition-normal);
+        overflow-y: auto;
+        background-color: var(--kbr-white);
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .content-area {
+        flex: 1;
+        padding: 20px;
+    }
+    
+    .header {
+        padding: 0 15px;
+    }
+    
+    .header-title {
+        font-size: 14px;
+    }
+    
+    .page-content h1 {
+        font-size: 24px;
+    }
+    
+    .page-content h2 {
+        font-size: 18px;
+    }
+    
+    .page-content p {
+        font-size: 16px;
+    }
+    
+    .chart-container iframe {
+        height: 400px;
+    }
+    
+    .chart-description {
+        padding: 15px;
+    }
+
+    /* Banner: mobile height */
+    .page-banner {
+        height: 200px;
+        margin: -20px -20px 20px -20px;
+    }
+
+    .page-banner h1 {
+        font-size: 22px;
+        padding: 0 20px;
+    }
+}
+
+/* Small mobile: < 480px */
+@media (max-width: 479px) {
+    .header-title {
+        font-size: 12px;
+    }
+    
+    .page-content h1 {
+        font-size: 20px;
+    }
+    
+    .page-content h2 {
+        font-size: 16px;
+    }
+    
+    .chart-container iframe {
+        height: 300px;
+    }
+
+    .page-banner {
+        height: 150px;
+    }
+
+    .page-banner h1 {
+        font-size: 18px;
+    }
+}

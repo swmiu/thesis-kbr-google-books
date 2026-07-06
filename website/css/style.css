@@ -1,0 +1,258 @@
+/* Main Stylesheet: Desktop-first layout with KBR branding */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--kbr-dark-gray);
+    background-color: var(--kbr-white);
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+/* Header: Dark background, centered title only */
+.header {
+    background-color: var(--kbr-black);
+    color: var(--kbr-white);
+    padding: 0 30px;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.header-title {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger-btn span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--kbr-white);
+    transition: var(--transition-normal);
+    border-radius: 2px;
+}
+
+/* Main container: Flex layout with sidebar + content */
+.main-container {
+    display: flex;
+    min-height: calc(100vh - var(--header-height));
+}
+
+/* Sidebar: Sticky navigation (desktop only) */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--kbr-white);
+    border-right: 1px solid var(--kbr-light-gray);
+    padding: 30px 0;
+    position: sticky;
+    top: var(--header-height);
+    overflow-y: auto;
+    max-height: calc(100vh - var(--header-height));
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-section {
+    padding: 0 20px 20px 20px;
+    border-bottom: 1px solid var(--kbr-light-gray);
+}
+
+.section-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--kbr-dark-green);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.nav-subsection {
+    list-style: none;
+}
+
+.nav-subsection li {
+    margin-bottom: 8px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--kbr-dark-gray);
+    font-size: 15px;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+    background-color: var(--kbr-light-gray);
+    color: var(--kbr-dark-green);
+}
+
+.nav-link.active {
+    background-color: var(--kbr-dark-green);
+    color: var(--kbr-white);
+    font-weight: 600;
+}
+
+/* Content area: Main content with iframe container */
+.content-area {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    background-color: var(--kbr-white);
+}
+
+.page-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Page heading styles */
+.page-content h1 {
+    font-size: 40px;
+    color: var(--kbr-dark-green);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.page-content h2 {
+    font-size: 30px;
+    color: var(--kbr-dark-green);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.page-content h3 {
+    font-size: 23px;
+    color: var(--kbr-dark-green);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+/* Body text styling */
+.page-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: var(--kbr-dark-gray);
+}
+
+/* Chart container with iframe */
+.chart-container {
+    margin: 40px 0;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.chart-container iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    display: block;
+}
+
+/* Chart description below iframe */
+.chart-description {
+    padding: 20px;
+    background-color: var(--kbr-light-gray);
+    border-top: 3px solid var(--kbr-dark-green);
+}
+
+.chart-description h3 {
+    font-size: 23px;
+    color: var(--kbr-dark-green);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.chart-description p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--kbr-dark-gray);
+}
+
+/* Page banner: image-ready with color fallback */
+.page-banner {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -40px -40px 40px -40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* Dark overlay for text readability on image banners */
+.page-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.page-banner h1 {
+    color: white;
+    font-size: 40px;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 40px;
+}
+
+/* Footer: Dark background matching header */
+.footer {
+    background-color: var(--kbr-black);
+    color: var(--kbr-white);
+    padding: 30px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.footer p {
+    color: var(--kbr-white);
+    margin: 5px 0;
+}
+
+.footer small {
+    opacity: 0.8;
+}

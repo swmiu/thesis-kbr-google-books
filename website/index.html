@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KU Leuven Digital Humanities Thesis Dashboard: KBR × Google Books Project</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header: simplified, no logos -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="header-title">KU Leuven Digital Humanities Thesis Dashboard: KBR × Google Books Project</h1>
+        </div>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <div class="main-container">
+        <!-- Left sidebar: 8 pages across 6 sections -->
+        <nav class="sidebar" id="sidebar">
+            <ul class="nav-list">
+                <li class="nav-section">
+                    <span class="section-title">1. INTRODUCTION</span>
+                    <ul class="nav-subsection">
+                        <li><a href="#" data-page="introduction" class="nav-link active">Project Overview</a></li>
+                    </ul>
+                </li>
+                <li class="nav-section">
+                    <span class="section-title">2. TEMPORAL FRAMEWORK</span>
+                    <ul class="nav-subsection">
+                        <li><a href="#" data-page="temporal_framework" class="nav-link">Year Distribution</a></li>
+                    </ul>
+                </li>
+                <li class="nav-section">
+                    <span class="section-title">3. LINGUISTIC DIVERSITY</span>
+                    <ul class="nav-subsection">
+                        <li><a href="#" data-page="language_distribution" class="nav-link">Language Distribution</a></li>
+                    </ul>
+                </li>
+                <li class="nav-section">
+                    <span class="section-title">4. PUBLISHER ANALYSIS</span>
+                    <ul class="nav-subsection">
+                        <li><a href="#" data-page="publisher_market" class="nav-link">Market Share</a></li>
+                        <li><a href="#" data-page="publisher_language" class="nav-link">Language Profile</a></li>
+                    </ul>
+                </li>
+                <li class="nav-section">
+                    <span class="section-title">5. GEOSPATIAL SCOPE</span>
+                    <ul class="nav-subsection">
+                        <li><a href="#" data-page="country_distribution" class="nav-link">Country Distribution</a></li>
+                        <li><a href="#" data-page="publishing_hubs" class="nav-link">Publishing Hubs</a></li>
+                    </ul>
+                </li>
+                <li class="nav-section">
+                    <span class="section-title">6. METHODOLOGY</span>
+                    <ul class="nav-subsection">
+                        <li><a href="#" data-page="methodology" class="nav-link">Data Pipeline & Explanation</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="content-area">
+            <div id="pageContent" class="page-content"></div>
+        </div>
+    </div>
+
+    <!-- Footer: personal attribution -->
+    <footer class="footer">
+        <p>&copy; Yung-En Wong, 2026. KU Leuven Advanced MA in Digital Humanities. Thesis Project.</p>
+        <p>Illustrations by Vincent Wong.</p>
+        <p><small>Data: 1,000 bibliographic records sampled from KBR Google Books Project. Analysis period: 1602–1901.</small></p>
+    </footer>
+
+    <script src="js/navigation.js"></script>
+</body>
+</html>
