@@ -209,10 +209,16 @@ function loadPage(pageName) {
     iframes.forEach(iframe => {
         iframe.onload = function() {
             try {
-                iframe.contentWindow.dispatchEvent(new Event('resize'));
+                setTimeout(() => {
+                    iframe.contentWindow.dispatchEvent(new Event('resize'));
+                    if (iframe.contentWindow.Plotly) {
+                        const plots = iframe.contentDocument.querySelectorAll('.plotly-graph-div');
+                        plots.forEach(plot => iframe.contentWindow.Plotly.Plots.resize(plot));
+                    }
+                }, 300);
             } catch(e) {}
         };
     });
 
-    
+
 }
