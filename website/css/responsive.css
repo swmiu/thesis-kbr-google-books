@@ -85,6 +85,7 @@
 
     .chart-container iframe {
         height: 400px;
+        min-width: 800px;
     }
     
     .chart-description {
