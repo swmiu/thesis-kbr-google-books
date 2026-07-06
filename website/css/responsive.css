@@ -79,8 +79,8 @@
     }
     
     .chart-container {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .chart-container iframe {
