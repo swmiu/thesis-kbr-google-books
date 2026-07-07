@@ -16,12 +16,9 @@
 
     /* Banner: use mobile height on tablet */
     .page-banner {
-        height: 200px;
-        margin: -30px -30px 30px -30px;
-    }
-
-    .page-banner h1 {
-        font-size: 28px;
+        width: calc(100vw - 200px);
+        margin-top: -30px;
+        margin-bottom: 30px;
     }
 }
 
@@ -42,7 +39,7 @@
         transform: translateX(-100%);
         transition: transform var(--transition-normal);
         overflow-y: auto;
-        background-color: var(--kbr-white);
+        background-color: #E5E3D7;
     }
     
     .sidebar.active {
@@ -94,13 +91,9 @@
 
     /* Banner: mobile height */
     .page-banner {
-        height: 200px;
-        margin: -20px -20px 20px -20px;
-    }
-
-    .page-banner h1 {
-        font-size: 22px;
-        padding: 0 20px;
+        width: 100vw;
+        margin-top: -20px;
+        margin-bottom: 20px;
     }
 }
 
@@ -120,13 +113,5 @@
     
     .chart-container iframe {
         height: 300px;
-    }
-
-    .page-banner {
-        height: 150px;
-    }
-
-    .page-banner h1 {
-        font-size: 18px;
     }
 }

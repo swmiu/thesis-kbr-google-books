@@ -38,7 +38,8 @@ body {
 
 .header-title {
     font-size: 20px;
-    font-weight: 700;
+    font-family: var(--font-heading);
+    font-weight: 500;
     text-align: center;
 }
 
@@ -68,8 +69,8 @@ body {
 /* Sidebar: Sticky navigation (desktop only) */
 .sidebar {
     width: var(--sidebar-width);
-    background-color: var(--kbr-white);
-    border-right: 1px solid var(--kbr-light-gray);
+    background-color: #E5E3D7;
+    border-right: 1px solid #E5E3D7;
     padding: 30px 0;
     position: sticky;
     top: var(--header-height);
@@ -83,13 +84,14 @@ body {
 
 .nav-section {
     padding: 0 20px 20px 20px;
-    border-bottom: 1px solid var(--kbr-light-gray);
+    border-bottom: 1px solid #E5E3D7;
 }
 
 .section-title {
     display: block;
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 16px;
+    font-family: var(--font-heading);
+    font-weight: 500;
     color: var(--kbr-dark-green);
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -130,7 +132,7 @@ body {
     flex: 1;
     padding: 40px;
     overflow-y: auto;
-    background-color: var(--kbr-white);
+    background-color: #D6D3C6;
 }
 
 .page-content {
@@ -141,24 +143,27 @@ body {
 /* Page heading styles */
 .page-content h1 {
     font-size: 40px;
+    font-family: var(--font-heading);
     color: var(--kbr-dark-green);
     margin-bottom: 20px;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .page-content h2 {
     font-size: 30px;
+    font-family: var(--font-heading);
     color: var(--kbr-dark-green);
     margin-top: 30px;
     margin-bottom: 15px;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .page-content h3 {
     font-size: 23px;
+    font-family: var(--font-heading);
     color: var(--kbr-dark-green);
     margin-bottom: 12px;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 /* Body text styling */
@@ -187,15 +192,15 @@ body {
 /* Chart description below iframe */
 .chart-description {
     padding: 20px;
-    background-color: var(--kbr-light-gray);
-    border-top: 3px solid var(--kbr-dark-green);
+    background-color: #E5E3D7;
 }
 
 .chart-description h3 {
     font-size: 23px;
+    font-family: var(--font-heading);
     color: var(--kbr-dark-green);
     margin-bottom: 12px;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .chart-description p {
@@ -206,36 +211,20 @@ body {
 
 /* Page banner: image-ready with color fallback */
 .page-banner {
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: -40px -40px 40px -40px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    width: calc(100vw - var(--sidebar-width));
     position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -40px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    line-height: 0;
 }
 
-/* Dark overlay for text readability on image banners */
-.page-banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.35);
-}
-
-.page-banner h1 {
-    color: white;
-    font-size: 40px;
-    margin: 0;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    padding: 0 40px;
+.page-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Footer: Dark background matching header */

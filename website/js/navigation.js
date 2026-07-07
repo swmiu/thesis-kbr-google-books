@@ -54,14 +54,14 @@ function loadPage(pageName) {
     
     const activeLink = document.querySelector(`[data-page="${pageName}"]`);
     activeLink.classList.add('active');
-    activeLink.style.backgroundColor = pageColors[pageName] || '#3D6B52';
+    activeLink.style.backgroundColor = '#595959';
     
     // 8-page content mapping
     const pages = {
 
         'introduction': `
-            <div class="page-banner" style="background-color: #3D6B52;">
-                <h1>Introduction to the Project</h1>
+            <div class="page-banner">
+                <img src="assets/images/banner-1.jpg" alt="Introduction to the Project">
             </div>
             <div class="chart-description">
                 <h3>Project Overview</h3>
@@ -87,8 +87,8 @@ function loadPage(pageName) {
         `,
         
         'temporal_framework': `
-            <div class="page-banner" style="background-color: #D4A4A0;">
-                <h1>Temporal Framework: Year Distribution</h1>
+            <div class="page-banner">
+                <img src="assets/images/banner-2.jpg" alt="Year Distribution">
             </div>
             <div class="chart-container">
                 <iframe src="data/visualizations/year_distribution.html" title="Year Distribution Chart"></iframe>
@@ -100,8 +100,8 @@ function loadPage(pageName) {
         `,
         
         'language_distribution': `
-            <div class="page-banner" style="background-color: #F4D547;">
-                <h1>Linguistic Diversity: Language Distribution</h1>
+            <div class="page-banner">
+                <img src="assets/images/banner-3.jpg" alt="Language Distribution">
             </div>
             <div class="chart-container">
                 <iframe src="data/visualizations/language_distribution.html" title="Language Distribution Chart"></iframe>
@@ -114,8 +114,8 @@ function loadPage(pageName) {
         `,
         
         'publisher_market': `
-            <div class="page-banner" style="background-color: #A64E7C;">
-                <h1>Publisher Analysis: Market Share</h1>
+            <div class="page-banner">
+                <img src="assets/images/banner-4-1.jpg" alt="Publisher Market Share">
             </div>
             <div class="chart-container">
                 <iframe src="data/visualizations/publisher_treemap.html" title="Publisher Treemap Chart"></iframe>
@@ -127,8 +127,8 @@ function loadPage(pageName) {
         `,
 
         'publisher_language': `
-            <div class="page-banner" style="background-color: #A64E7C;">
-                <h1>Publisher Analysis: Language Profile</h1>
+            <div class="page-banner">
+                <img src="assets/images/banner-4-2.jpg" alt="Publisher Language Profile">
             </div>
             <div class="chart-container">
                 <iframe src="data/visualizations/publisher_language_bar.html" title="Publisher Language Distribution Chart"></iframe>
@@ -140,8 +140,8 @@ function loadPage(pageName) {
         `,
         
         'country_distribution': `
-            <div class="page-banner" style="background-color: #4BA3D6;">
-                <h1>Geospatial Scope: Country Distribution</h1>
+            <div class="page-banner">
+                <img src="assets/images/banner-5-1.jpg" alt="Country Distribution">
             </div>
             <div class="chart-container">
                 <iframe src="data/visualizations/country_distribution.html" title="Country Distribution Chart"></iframe>
@@ -154,8 +154,8 @@ function loadPage(pageName) {
         `,
         
         'publishing_hubs': `
-            <div class="page-banner" style="background-color: #E8956E;">
-                <h1>Geospatial Scope: Publishing Hubs</h1>
+            <div class="page-banner">
+                <img src="assets/images/banner-5-2.jpg" alt="Publishing Hubs">
             </div>
             <div class="chart-container">
                 <iframe src="data/visualizations/cities_map.html" title="Cities Map" style="height: 700px;"></iframe>
@@ -168,8 +168,8 @@ function loadPage(pageName) {
         `,
         
         'methodology': `
-            <div class="page-banner" style="background-color: #1A3A5C;">
-                <h1>Methodology: Data Pipeline & Technical Explanation</h1>
+            <div class="page-banner">
+                <img src="assets/images/banner-6.jpg" alt="Data Pipeline and Technical Explanation">
             </div>
             
             <h2>STEP 0: SAMPLE</h2>

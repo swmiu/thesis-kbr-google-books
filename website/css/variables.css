@@ -1,6 +1,7 @@
 /* CSS Variables: KBR Brand Design Tokens */
 :root {
-    --kbr-dark-green: #3D6B52;
+    --kbr-dark-green-old: #3D6B52;
+    --kbr-dark-green: #172D20;
     --kbr-navy-blue: #1A3A5C;
     --kbr-bright-yellow: #F4D547;
     --kbr-rose-pink: #D4A4A0;
@@ -11,8 +12,8 @@
     --kbr-white: #FFFFFF;
     --kbr-light-gray: #F5F5F5;
     --kbr-dark-gray: #333333;
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-serif: Georgia, "Times New Roman", serif;
+    --font-sans: "Source Serif 4", Georgia, serif;
+    --font-heading: "Jost", sans-serif;
     --sidebar-width: 300px;
     --header-height: 80px;
 }
