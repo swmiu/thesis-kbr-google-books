@@ -63,7 +63,7 @@ function loadPage(pageName) {
             <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Introduction</h1>
             <div class="page-banner">
                 <picture>
-                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-1.jpg">
+                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-1.PNG">
                     <img src="assets/images/banner-1.jpg" alt="Introduction to the Project">
                 </picture>
             </div>
@@ -94,7 +94,7 @@ function loadPage(pageName) {
             <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Temporal Framework</h1>
             <div class="page-banner">
                 <picture>
-                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-2.jpg">
+                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-2.PNG">
                     <img src="assets/images/banner-2.jpg" alt="Temporal Framework: Year Distribution">
                 </picture>
             </div>
@@ -111,7 +111,7 @@ function loadPage(pageName) {
             <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Language Distribution</h1>
             <div class="page-banner">
                 <picture>
-                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-3.jpg">
+                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-3.PNG">
                     <img src="assets/images/banner-3.jpg" alt="Linguistic Diversity: Language Distribution">
                 </picture>
             </div>
@@ -129,7 +129,7 @@ function loadPage(pageName) {
             <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Publisher Market</h1>
             <div class="page-banner">
                 <picture>
-                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-4-1.jpg">
+                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-4-1.PNG">
                     <img src="assets/images/banner-4-1.jpg" alt="Publisher Analysis: Market Share">
                 </picture>
             </div>
@@ -146,7 +146,7 @@ function loadPage(pageName) {
             <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Publisher Language</h1>
             <div class="page-banner">
                 <picture>
-                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-4-2.jpg">
+                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-4-2.PNG">
                     <img src="assets/images/banner-4-2.jpg" alt="Publisher Analysis: Language Profile">
                 </picture>
             </div>
@@ -163,7 +163,7 @@ function loadPage(pageName) {
             <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Country Distribution</h1>
             <div class="page-banner">
                 <picture>
-                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-5-1.jpg">
+                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-5-1.PNG">
                     <img src="assets/images/banner-5-1.jpg" alt="Geospatial Scope: Country Distribution">
                 </picture>
             </div>
@@ -181,7 +181,7 @@ function loadPage(pageName) {
             <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Publishing Hubs</h1>
             <div class="page-banner">
                 <picture>
-                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-5-2.jpg">
+                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-5-2.PNG">
                     <img src="assets/images/banner-5-2.jpg" alt="Geospatial Scope: Publishing Hubs">
                 </picture>
             </div>
@@ -199,7 +199,7 @@ function loadPage(pageName) {
             <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Methodology</h1>
             <div class="page-banner">
                 <picture>
-                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-6.jpg">
+                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-6.PNG">
                     <img src="assets/images/banner-6.jpg" alt="Methodology: Data Pipeline and Explanation">
                 </picture>
             </div>
