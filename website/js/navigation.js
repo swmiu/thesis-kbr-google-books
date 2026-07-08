@@ -60,8 +60,12 @@ function loadPage(pageName) {
     const pages = {
 
         'introduction': `
+
             <div class="page-banner">
-                <img src="assets/images/banner-1.jpg" alt="Introduction to the Project">
+                <picture>
+                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-1.jpg">
+                    <img src="assets/images/banner-1.jpg" alt="Introduction to the Project">
+                </picture>
             </div>
             <div class="chart-description">
                 <h3>Project Overview</h3>
@@ -88,7 +92,10 @@ function loadPage(pageName) {
         
         'temporal_framework': `
             <div class="page-banner">
-                <img src="assets/images/banner-2.jpg" alt="Year Distribution">
+                <picture>
+                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-2.jpg">
+                    <img src="assets/images/banner-2.jpg" alt="Temporal Framework: Year Distribution">
+                </picture>
             </div>
             <div class="chart-container">
                 <iframe src="data/visualizations/year_distribution.html" title="Year Distribution Chart"></iframe>
@@ -101,7 +108,10 @@ function loadPage(pageName) {
         
         'language_distribution': `
             <div class="page-banner">
-                <img src="assets/images/banner-3.jpg" alt="Language Distribution">
+                <picture>
+                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-3.jpg">
+                    <img src="assets/images/banner-3.jpg" alt="Linguistic Diversity: Language Distribution">
+                </picture>
             </div>
             <div class="chart-container">
                 <iframe src="data/visualizations/language_distribution.html" title="Language Distribution Chart"></iframe>
@@ -115,7 +125,10 @@ function loadPage(pageName) {
         
         'publisher_market': `
             <div class="page-banner">
-                <img src="assets/images/banner-4-1.jpg" alt="Publisher Market Share">
+                <picture>
+                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-4-1.jpg">
+                    <img src="assets/images/banner-4-1.jpg" alt="Publisher Analysis: Market Share">
+                </picture>
             </div>
             <div class="chart-container">
                 <iframe src="data/visualizations/publisher_treemap.html" title="Publisher Treemap Chart"></iframe>
@@ -128,7 +141,10 @@ function loadPage(pageName) {
 
         'publisher_language': `
             <div class="page-banner">
-                <img src="assets/images/banner-4-2.jpg" alt="Publisher Language Profile">
+                <picture>
+                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-4-2.jpg">
+                    <img src="assets/images/banner-4-2.jpg" alt="Publisher Analysis: Language Profile">
+                </picture>
             </div>
             <div class="chart-container">
                 <iframe src="data/visualizations/publisher_language_bar.html" title="Publisher Language Distribution Chart"></iframe>
@@ -141,7 +157,10 @@ function loadPage(pageName) {
         
         'country_distribution': `
             <div class="page-banner">
-                <img src="assets/images/banner-5-1.jpg" alt="Country Distribution">
+                <picture>
+                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-5-1.jpg">
+                    <img src="assets/images/banner-5-1.jpg" alt="Geospatial Scope: Country Distribution">
+                </picture>
             </div>
             <div class="chart-container">
                 <iframe src="data/visualizations/country_distribution.html" title="Country Distribution Chart"></iframe>
@@ -155,7 +174,10 @@ function loadPage(pageName) {
         
         'publishing_hubs': `
             <div class="page-banner">
-                <img src="assets/images/banner-5-2.jpg" alt="Publishing Hubs">
+                <picture>
+                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-5-2.jpg">
+                    <img src="assets/images/banner-5-2.jpg" alt="Geospatial Scope: Publishing Hubs">
+                </picture>
             </div>
             <div class="chart-container">
                 <iframe src="data/visualizations/cities_map.html" title="Cities Map" style="height: 700px;"></iframe>
@@ -169,7 +191,10 @@ function loadPage(pageName) {
         
         'methodology': `
             <div class="page-banner">
-                <img src="assets/images/banner-6.jpg" alt="Data Pipeline and Technical Explanation">
+                <picture>
+                    <source media="(max-width: 767px)" srcset="assets/images/m-banner-6.jpg">
+                    <img src="assets/images/banner-6.jpg" alt="Methodology: Data Pipeline and Explanation">
+                </picture>
             </div>
             
             <h2>STEP 0: SAMPLE</h2>
