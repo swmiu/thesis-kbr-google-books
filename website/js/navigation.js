@@ -60,7 +60,7 @@ function loadPage(pageName) {
     const pages = {
 
         'introduction': `
-
+            <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Introduction</h1>
             <div class="page-banner">
                 <picture>
                     <source media="(max-width: 767px)" srcset="assets/images/m-banner-1.jpg">
@@ -68,7 +68,7 @@ function loadPage(pageName) {
                 </picture>
             </div>
             <div class="chart-description">
-                <h3>Project Overview</h3>
+                <h2>Project Overview</h2>
                 <p>KBR — the Royal Library of Belgium — is Belgium's national scientific library, holding close to eight million objects spanning centuries of European cultural heritage. In 2022, KBR formalised a partnership with Google Books to digitise its historical collections, covering works from the 17th to the end of the 19th century, and make them freely accessible worldwide via both Google Books and BELGICA, KBR's own digital platform. Over the three-year project period from 2023 to June 2026, approximately 100,000 volumes were digitised and made available online.</p>
                 <p>This project grows directly out of that digitisation effort. As part of an Advanced Master's thesis in Digital Humanities at KU Leuven, the author completed a research internship at KBR's Digitisation unit from March to June 2026, working on the Google Books @ KBR project. The internship involved retrieving books from conservation stacks, verifying and enriching catalogue metadata, assigning barcodes, and assessing the condition of fragile volumes — tasks that sit at the very beginning of the digitisation pipeline, before a single page is scanned, and that require close, hands-on engagement with the physical collection.</p>
                 <p>The 1,000 bibliographic records at the heart of this analysis were drawn directly from that experience. On 23 April 2026, with the project approaching its closing date, the author wrote a Python script to randomly sample 1,000 records from the 86,637 catalogue entries updated through the project's cataloguing work. KBR library staff then exported those records as MARC 21 XML from the institutional catalogue system — the starting point of an analytical pipeline built from scratch, from raw XML to the interactive visualisations presented on this site.</p>
@@ -91,6 +91,7 @@ function loadPage(pageName) {
         `,
         
         'temporal_framework': `
+            <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Temporal Framework</h1>
             <div class="page-banner">
                 <picture>
                     <source media="(max-width: 767px)" srcset="assets/images/m-banner-2.jpg">
@@ -101,12 +102,13 @@ function loadPage(pageName) {
                 <iframe src="data/visualizations/year_distribution.html" title="Year Distribution Chart"></iframe>
             </div>
             <div class="chart-description">
-                <h3>Year Distribution</h3>
+                <h2>Year Distribution</h2>
                 <p>The chart maps publication dates across the 1,000-record sample, revealing how output is distributed across three centuries of print history. The pronounced concentration in the post-1830 period reflects the composition of the sample itself: approximately 81% of records come from M-SLZ (Salle de Lecture Générale), comprising works published from 1830 onwards and reflecting Belgium's relatively recent national history, while the remaining 19% from M-RP (Réserve Précieuse) account for the earlier centuries. The 1861–1890 period alone represents 39.1% of all records, with the decades either side also showing elevated activity. These patterns describe the profile of this particular sample within the Google Books @ KBR project, not European publishing output as a whole. The range slider beneath the chart allows readers to zoom into specific decades for a closer look at year-by-year variation.</p>
             </div>
         `,
         
         'language_distribution': `
+            <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Language Distribution</h1>
             <div class="page-banner">
                 <picture>
                     <source media="(max-width: 767px)" srcset="assets/images/m-banner-3.jpg">
@@ -117,13 +119,14 @@ function loadPage(pageName) {
                 <iframe src="data/visualizations/language_distribution.html" title="Language Distribution Chart"></iframe>
             </div>
             <div class="chart-description">
-                <h3>Language Distribution</h3>
+                <h2>Language Distribution</h2>
                 <p>French dominates this collection at 65.5%, reflecting KBR's institutional identity and the historical dominance of French within Belgium's administrative and intellectual elite during the 19th century. The two other official languages of Belgium follow at a distance: German at 9.2% and Dutch at 8.8%. Latin, at 2.8%, marks the presence of older scholarly and ecclesiastical works in the collection.</p>
                 <p>Beyond these four, the sample spans a further six languages across multiple language families: English (5.3%), Italian (4.3%), Spanish (1.8%), Portuguese (0.5%), Russian (0.4%), and Swedish (0.1%), pointing to the breadth of KBR's acquisition scope beyond the French-speaking world. A small number of records (1.3%) carry multiple language codes and are grouped as "multiple languages" following the Europeana convention. Across 10 distinct languages, the collection is more diverse than its French-dominant profile might suggest. The interactive legend allows readers to isolate individual languages for comparison.</p>
             </div>
         `,
         
         'publisher_market': `
+            <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Publisher Market</h1>
             <div class="page-banner">
                 <picture>
                     <source media="(max-width: 767px)" srcset="assets/images/m-banner-4-1.jpg">
@@ -134,12 +137,13 @@ function loadPage(pageName) {
                 <iframe src="data/visualizations/publisher_treemap.html" title="Publisher Treemap Chart"></iframe>
             </div>
             <div class="chart-description">
-                <h3>Publisher Market Share</h3>
+                <h2>Publisher Market Share</h2>
                 <p>Only 452 of 1,000 books (45.2%) carry publisher information in the MARC authority fields, a limitation typical of older cataloguing practices. These 452 records map to 374 distinct publisher names. The Treemap visualises relative market share across six time periods. The 1861–1890 period (bright yellow) dominates, consistent with the temporal distribution of the full collection. Publisher activity varies sharply across periods: some firms were active for decades, others for only a single decade. Tile size represents publication volume; colour represents time period. Largest publishers in each era occupy proportionally larger tiles, allowing rapid visual assessment of competitive positioning across a century of European publishing.</p>
             </div>
         `,
 
         'publisher_language': `
+            <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Publisher Language</h1>
             <div class="page-banner">
                 <picture>
                     <source media="(max-width: 767px)" srcset="assets/images/m-banner-4-2.jpg">
@@ -150,12 +154,13 @@ function loadPage(pageName) {
                 <iframe src="data/visualizations/publisher_language_bar.html" title="Publisher Language Distribution Chart"></iframe>
             </div>
             <div class="chart-description">
-                <h3>Publisher Language Profile</h3>
+                <h2>Publisher Language Profile</h2>
                 <p>The stacked horizontal bar chart reveals the linguistic specialisation of major publishers. Some publishers focused almost exclusively on French-language works (reflecting KBR's institutional identity), while others — particularly German, Belgian, and Swiss publishers — served more linguistically diverse markets. The chart identifies both French-language specialists (left-aligned dominance) and polyglots (more evenly distributed colours). This linguistic profile hints at broader publishing ecosystems: French publishers typically served the francophone intellectual market, while publishers in multilingual regions (Belgium, Switzerland) catered to polyglot audiences. The presence of non-French languages from even specialized publishers underscores the reality of 19th-century European intellectual exchange, which frequently crossed linguistic boundaries.</p>
             </div>
         `,
         
         'country_distribution': `
+            <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Country Distribution</h1>
             <div class="page-banner">
                 <picture>
                     <source media="(max-width: 767px)" srcset="assets/images/m-banner-5-1.jpg">
@@ -166,13 +171,14 @@ function loadPage(pageName) {
                 <iframe src="data/visualizations/country_distribution.html" title="Country Distribution Chart"></iframe>
             </div>
             <div class="chart-description">
-                <h3>Country Distribution</h3>
+                <h2>Country Distribution</h2>
                 <p>This chart maps the geopolitical scope of the collection across 26 countries, based on publication country codes recorded in the MARC metadata. Belgium leads with 383 records, followed closely by France with 352, together reflecting KBR's institutional location and the French-language dominance of the collection. Germany (98), Italy (43), the United Kingdom (39), and the Netherlands (25) follow, reflecting the broader European reach of KBR's acquisitions. A small number of records (12) carry unresolved country codes and are listed as Unknown.</p>
                 <p>The heavy concentration in Belgium and France (73% combined) reflects both the geographical proximity of KBR to francophone Europe and the library's historical acquisition patterns. The presence of publications from 24 other countries across the continent underscores the library's role as a repository of pan-European intellectual and cultural heritage. This distribution is typical of large national libraries drawing on centuries of systematic acquisition.</p>
             </div>
         `,
         
         'publishing_hubs': `
+            <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Publishing Hubs</h1>
             <div class="page-banner">
                 <picture>
                     <source media="(max-width: 767px)" srcset="assets/images/m-banner-5-2.jpg">
@@ -183,13 +189,14 @@ function loadPage(pageName) {
                 <iframe src="data/visualizations/cities_map.html" title="Cities Map" style="height: 700px;"></iframe>
             </div>
             <div class="chart-description">
-                <h3>Publishing Hubs</h3>
+                <h2>Publishing Hubs</h2>
                 <p>The interactive map shows 189 distinct publication cities across Europe, with circles sized and coloured to represent publication volume. Major publishing centres — Paris (264 books), Brussels (140), Amsterdam (68), Bruxelles, and Berlin — emerge as dominant nodes in the pan-European publishing network. These cities were the commercial and intellectual hubs where books were produced, marketed, and distributed, both within their home countries and across borders through international trading networks.</p>
                 <p>The geographic concentration around the Low Countries, France, and Germany reflects both KBR's acquisitional scope and the historical reality of European print culture in the 19th century. Smaller secondary centres (Rome, London, Vienna) appear as medium and small circles, marking the presence of important regional publishing activity. The unscaled circle sizes are intentional: compressing the scale would obscure the genuine concentration of historical publishing activity in a small number of major cities. Hover over any circle to see the city name and publication count.</p>
             </div>
         `,
         
         'methodology': `
+            <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Methodology</h1>
             <div class="page-banner">
                 <picture>
                     <source media="(max-width: 767px)" srcset="assets/images/m-banner-6.jpg">

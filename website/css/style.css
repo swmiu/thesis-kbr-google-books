@@ -150,7 +150,7 @@ body {
 }
 
 .page-content h2 {
-    font-size: 30px;
+    font-size: 23px;
     font-family: var(--font-heading);
     color: var(--kbr-dark-green);
     margin-top: 30px;
@@ -159,11 +159,7 @@ body {
 }
 
 .page-content h3 {
-    font-size: 23px;
-    font-family: var(--font-heading);
-    color: var(--kbr-dark-green);
-    margin-bottom: 12px;
-    font-weight: 500;
+    display: none;
 }
 
 /* Body text styling */
