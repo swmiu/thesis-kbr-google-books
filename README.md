@@ -43,7 +43,7 @@ The pipeline follows a five-step modular architecture, with each step producing 
 1. **Sample** (notebook 0): Proportional stratified sampling from KBR's operational inventory
 2. **Extract** (notebook 1): MARCXML parsing into 7 relational CSV tables (3NF schema)
 3. **Clean** (notebook 2): Python syntactic normalization + OpenRefine/Wikidata reconciliation for cities
-4. **Integrate** (notebook 3): Relational merging into 5 domain-specific analytical tables
+4. **Integrate** (notebook 3): Relational merging into 6 domain-specific analytical tables
 5. **Visualize** (notebook 4): Plotly and Folium chart generation
 6. **Deploy**: Static website on Vercel with GitHub auto-deployment
 
@@ -68,7 +68,7 @@ Note: The original KBR source files are not included in this repository due to i
 ## Author
 
 Yung-En Wong.
-KU Leuven, Advanced MA in Digital Humanities, 2025-2026
+KU Leuven, Advanced MA in Digital Humanities, 2025-2026.
 
 Banner illustrations by Yung-Heng Wong.
 
