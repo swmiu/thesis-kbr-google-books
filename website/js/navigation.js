@@ -229,8 +229,11 @@ function loadPage(pageName) {
             
             <h2>STEP 5: DEPLOY</h2>
             <p>The website is built as a static site deployed on Vercel via GitHub auto-deployment. Each visualisation is exported as a standalone HTML file and embedded via iframe, allowing individual charts to be updated independently without rebuilding the entire site.</p>
-            <p>Visual design follows KBR's institutional brand palette throughout all six charts, ensuring visual consistency and institutional identity. Accessibility was a deliberate consideration: text contrast on chart elements is computed programmatically based on background luminance to meet WCAG AA standards, particularly on darker palette colours where black text would fail contrast thresholds.</p>
-            <p>Typography uses sans-serif fonts for chart labels and Georgia serif for descriptive text. The layout is responsive, adapting to different screen widths, with minimum width constraints applied to complex charts such as the Treemap to preserve readability at narrow viewports.</p>
+            <p>Visual design follows a palette derived from KBR's institutional branding, with the primary green deepened for improved text contrast. Typography uses Jost for headings and Source Serif 4 for body text, both loaded via Google Fonts. Page banners use the picture element to serve optimised images for desktop and mobile viewports; illustrations are by Yung-Heng Wong.</p>
+            <p>Accessibility was a deliberate consideration: text contrast on chart elements is computed programmatically based on background luminance to meet WCAG AA standards, and heading hierarchy and landmark structure follow WCAG guidelines. The layout is responsive across desktop, tablet, and mobile breakpoints. On narrow viewports, chart containers enable horizontal scrolling to preserve chart readability without distorting complex visualisations such as the Treemap and Publisher Language bar chart.</p>
+
+            <h2>AI Tools Disclosure</h2>
+            <p>This project was developed using Claude (Anthropic) and Gemini (Google) as iterative development tools. AI tools were used for code generation, debugging, web development, and documentation drafting. AI tools were not used for data interpretation, research question formulation, or academic argumentation. All analytical decisions, research design, and academic interpretations are the author's own.</p>
         `
     };
     
