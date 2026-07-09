@@ -67,7 +67,7 @@ Note: The original KBR source files are not included in this repository due to i
 
 ## Author
 
-Yung-En Wong
+Yung-En Wong.
 KU Leuven, Advanced MA in Digital Humanities, 2025-2026
 
 Banner illustrations by Yung-Heng Wong.
