@@ -72,6 +72,10 @@ KU Leuven, Advanced MA in Digital Humanities, 2025-2026
 
 Banner illustrations by Yung-Heng Wong.
 
+## AI Tools Disclosure
+
+The author developed this project using Claude (Anthropic) and Gemini (Google) as development tools throughout an iterative workflow. AI tools were used for code generation, debugging, web development, and documentation drafting. The author initiated all tasks, evaluated and revised AI-generated outputs, and retained full responsibility for all analytical decisions, research design, and academic interpretations.
+
 ## License
 
 See [LICENSE](LICENSE) for details.
