@@ -31,7 +31,9 @@ This project asks a straightforward question: what can 1,000 bibliographic recor
 
 ### Year Distribution
 
-The chart maps publication dates across the 1,000-record sample, revealing how output is distributed across three centuries of print history. The pronounced concentration in the post-1830 period reflects the composition of the sample itself: approximately 81% of records come from M-SLZ (Salle de Lecture Générale), comprising works published from 1830 onwards and reflecting Belgium's relatively recent national history, while the remaining 19% from M-RP (Réserve Précieuse) account for the earlier centuries. The 1861–1890 period alone represents 39.1% of all records, with the decades either side also showing elevated activity. These patterns describe the profile of this particular sample within the Google Books @ KBR project, not European publishing output as a whole. The range slider beneath the chart allows readers to zoom into specific decades for a closer look at year-by-year variation.
+The chart demonstrates the publication years of the 1,000-record sample, spanning from 1602 to 1901. The notable increase since the 1830s reflects the composition of the sample itself: approximately 81% of the records come from the M-SLZ (Salle de Lecture Générale) section, which organizes holdings from 1830 onwards, while the remaining 19% comes from the M-RP (Réserve Précieuse) section, containing publications "older than Belgium." While the year distribution seems representative of Belgium's relatively recent national history, the concentration during the 1870–1890 period shows elevated publishing activity.
+
+These patterns describe the profile of this particular sample within the Google Books @ KBR project, not European publishing output as a whole. The range slider beneath the chart allows readers to zoom into specific decades for a closer look at year-by-year variation.
 
 ---
 
