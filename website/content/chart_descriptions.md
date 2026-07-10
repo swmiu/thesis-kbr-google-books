@@ -41,9 +41,9 @@ These patterns describe the profile of this particular sample within the Google 
 
 ### Language Distribution
 
-French dominates this collection at 65.5%, reflecting KBR's institutional identity and the historical dominance of French within Belgium's administrative and intellectual elite during the 19th century. The two other official languages of Belgium follow at a distance: German at 9.2% and Dutch at 8.8%. Latin, at 2.8%, marks the presence of older scholarly and ecclesiastical works in the collection.
+This sample gives us a look into the language diversity of the library's collection. Among 10 distinct languages, the major proportion (65.5%) of French reflects the library's institutional identity and the historical dominance of French within Belgium and the intellectual circle during the 19th century. The two other official languages of Belgium, German and Dutch, follow at a distance at 9.2% and 8.8% respectively. Latin (2.8%) marks the presence of older scholarly and ecclesiastical works in the collection.
+Beyond these four, the sample spans a further six "foreign" languages across multiple language families: English (5.3%), Italian (4.3%), Spanish (1.8%), Portuguese (0.5%), Russian (0.4%), and Swedish (0.1%), pointing to the breadth of KBR's acquisition scope beyond the French-speaking world. One thing to note is a small number of records (1.3%) carrying more than one language code and are grouped as "multiple languages" following the Europeana convention. The interactive legend allows readers to hover on individual languages for details.
 
-Beyond these four, the sample spans a further six languages across multiple language families: English (5.3%), Italian (4.3%), Spanish (1.8%), Portuguese (0.5%), Russian (0.4%), and Swedish (0.1%), pointing to the breadth of KBR's acquisition scope beyond the French-speaking world. A small number of records (1.3%) carry multiple language codes and are grouped as "multiple languages" following the Europeana convention. Across 10 distinct languages, the collection is more diverse than its French-dominant profile might suggest. The interactive legend allows readers to isolate individual languages for comparison.
 
 ---
 
@@ -51,9 +51,10 @@ Beyond these four, the sample spans a further six languages across multiple lang
 
 ### Country Distribution
 
-This chart maps the geopolitical scope of the collection across 26 countries, based on publication country codes recorded in the MARC metadata. Belgium leads with 383 records, followed closely by France with 352, together reflecting KBR's institutional location and the French-language dominance of the collection. Germany (98), Italy (43), the United Kingdom (39), and the Netherlands (25) follow, reflecting the broader European reach of KBR's acquisitions. A small number of records (12) carry unresolved country codes and are listed as Unknown.
+This chart demonstrates the geopolitical scope of the publication across 26 countries, based on publication country codes recorded in the MARC metadata. Belgium leads with 383 records, followed closely by France with 352, together reflecting the library’s institutional identity and the French-language dominance of the collection. Germany (98), Italy (43), the United Kingdom (39), and the Netherlands (25) follow, representing the broader European reach of the library’s acquisitions. Beyond Europe, the collection also includes records from the Americas (Argentina, Mexico, the United States, Chile, Uruguay, and Peru) and Japan, reflecting the diverse geographic scope. A small number of records (12) carry unresolved country codes and are listed as “Unknown.” 
 
-Because a single book co-published in multiple countries contributes to each respective country count, the total exceeds 1,000 — a deliberate methodological choice that preserves the cross-border nature of historical European publishing. Interestingly, the collection also includes records from the Americas (Argentina, Mexico, the United States, Chile, Uruguay, Peru) and Japan, pointing to publishing networks that extended well beyond Europe. As with all charts on this site, these figures describe the profile of this specific sample rather than European publishing as a whole.
+While the sample includes books co-published in multiple countries, in this case, a single book contributes to each respective country count, resulting in a total count of more than 1,000. This is a deliberate methodological choice that preserves the cross-border nature of historical European publishing. As with all charts on this site, these figures describe the profile of this specific sample rather than European publishing as a whole.
+
 
 ---
 
@@ -75,7 +76,9 @@ This chart uses the same publisher subset as the treemap above, ensuring both vi
 
 ### Cities Map
 
-This map plots 1,052 city records with valid geospatial coordinates (98.0% coverage), sourced from Wikidata via OpenRefine reconciliation. Each circle represents a publication city, sized proportionally to the number of books published there. Paris (264) and Brussels (192) dominate by a wide margin, reflecting the French-language dominance of the collection and KBR's Belgian institutional context. Ghent (49), London (35), Antwerp (25), Liège (24), and Leipzig (21) form a secondary tier of active publishing centres.
+The interactive map provides a closer look on the geographical dimension by laying out 189 distinct publication cities not only across Europe, but also reaching other continents across the world. The presence of cities like Melbourne on this map, despite Australia not appearing in the country-level chart, reflects the separate treatment of publication cities and country-level coding in MARC cataloguing, where cities are recorded in a separate field while country designation is determined independently.
+
+However, the major publishing centres remain in Europe. Paris (264) and Brussels (192) dominate by a wide margin, reflecting the French-language dominance of the collection. Ghent (49), London (35), Antwerp (25), Liège (24), and Leipzig (21) form a secondary tier of active publishing centres.
 
 The unscaled circle sizes are intentional: compressing the scale would obscure the genuine concentration of historical publishing activity in a small number of major cities. Hover over any circle to see the city name and publication count.
 
