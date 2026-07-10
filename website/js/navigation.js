@@ -138,7 +138,8 @@ function loadPage(pageName) {
             </div>
             <div class="chart-description">
                 <h2>Publisher Market Share</h2>
-                <p>Only 452 of 1,000 books (45.2%) carry publisher information in the MARC authority fields, a limitation typical of older cataloguing practices. These 452 records map to 374 distinct publisher names. The Treemap visualises relative market share across six time periods. The 1861–1890 period (bright yellow) dominates, consistent with the temporal distribution of the full collection. Publisher activity varies sharply across periods: some firms were active for decades, others for only a single decade. Tile size represents publication volume; colour represents time period. Largest publishers in each era occupy proportionally larger tiles, allowing rapid visual assessment of competitive positioning across a century of European publishing.</p>
+                <p>Among the 1,000 records, 452 (45.2%) contains identifiable publisher information extracted exclusively from authority-controlled MARC fields (100, 110, 700, 710, 720) where the relator code indicated a publisher role. The treemap is based on this subset rather than the full sample. It visualises the market share of 376 unique publisher entities across six time periods: 1600–1750, 1751–1800, 1801–1830, 1831–1860, 1861–1890, and 1891–1901.</p>
+                <p>To avoid visual noise of single-title publishers, the chart displays publishers with at least two publications within a given period. As a result, the 1600–1750 period contains no publisher meeting the minimum threshold and is not visible in the chart, whereas larger publishers in each period are represented by proportionally larger tiles. The 1861–1890 period in bright yellow tile dominates, consistent with the temporal distribution of the full collection. Click on a period tile to zoom in to individual publishers; click on a publisher to check the titles and publication years.</p>
             </div>
         `,
 
@@ -155,7 +156,7 @@ function loadPage(pageName) {
             </div>
             <div class="chart-description">
                 <h2>Publisher Language Profile</h2>
-                <p>The stacked horizontal bar chart reveals the linguistic specialisation of major publishers. Some publishers focused almost exclusively on French-language works (reflecting KBR's institutional identity), while others — particularly German, Belgian, and Swiss publishers — served more linguistically diverse markets. The chart identifies both French-language specialists (left-aligned dominance) and polyglots (more evenly distributed colours). This linguistic profile hints at broader publishing ecosystems: French publishers typically served the francophone intellectual market, while publishers in multilingual regions (Belgium, Switzerland) catered to polyglot audiences. The presence of non-French languages from even specialized publishers underscores the reality of 19th-century European intellectual exchange, which frequently crossed linguistic boundaries.</p>
+                <p>This chart is based on the same publisher subset as the treemap of Publisher Market Share, ensuring both visualisations draw from a consistent corpus. It explores the linguistic dimension of these core publishers. While the size of the sample is relatively limited, several patterns can still be observed. Houses such as H. Manceaux and Baillière seem to specialize in French-language publications. Others show a broader reach: Librairie Hachette & Cie spans French and Latin, while A. Siffer and I. Vanderpoorten published in both Dutch and French. German-language publishers such as J. F. Richter and C. G. Lüderitz'Sche Verlagsbuchhandlung are the main publishers of German books within this French-dominant landscape.</p>
             </div>
         `,
         
@@ -190,8 +191,7 @@ function loadPage(pageName) {
             </div>
             <div class="chart-description">
                 <h2>Publishing Hubs</h2>
-                <p>The interactive map provides a closer look on the geographical dimension by laying out 189 distinct publication cities not only across Europe, but also reaching other continents across the world. The presence of cities like Melbourne on this map, despite Australia not appearing in the country-level chart, reflects the separate treatment of publication cities and country-level coding in MARC cataloguing, where cities are recorded in a separate field while country designation is determined independently.</p>
-                <p>However, the major publishing centres remain in Europe. Paris (264) and Brussels (192) dominate by a wide margin, reflecting the French-language dominance of the collection. Ghent (49), London (35), Antwerp (25), Liège (24), and Leipzig (21) form a secondary tier of active publishing centres.</p>
+                <p>The interactive map provides a closer look on the geographical dimension by laying out 189 distinct publication cities across Europe and beyond. However, the major publishing centres remain in Europe. Paris (264) and Brussels (192) dominate by a wide margin, reflecting the French-language dominance of the collection. Ghent (49), London (35), Antwerp (25), Liège (24), and Leipzig (21) form a secondary tier of active publishing centres.</p>
                 <p>The unscaled circle sizes are intentional: compressing the scale would obscure the genuine concentration of historical publishing activity in a small number of major cities. Hover over any circle to see the city name and publication count.</p>
             </div>
         `,
