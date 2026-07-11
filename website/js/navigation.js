@@ -85,7 +85,7 @@ function loadPage(pageName) {
                 <p>The 1,000 records analysed here represent a stratified random sample drawn from 86,636 catalogue entries updated by the team. The dataset was filtered to retain only two main collection sections: M-SLZ (<em>Salle de Lecture Générale</em>, general reading room collection, approx. 81%) and M-RP (<em>Réserve Précieuse</em>, rare works predating Belgian independence in 1830, approx. 19%), which yielded 86,567 records in the final dataset. As all sampled records had been manually verified and enriched by team members during the project, the dataset benefits from a higher level of metadata quality.</p>    
             </div>
             
-            <h2>Temporal scope of 1602–1901</h2>
+            <h2>Temporal Scope of 1602–1901</h2>
             <div class="chart-description">
                 <p>In Belgium, copyright law provides protection for up to 70 years after the death of the author, while Google Books opted for 125 years for copyright protection. With 2026 as the project's closing year, this timeline places the upper boundary of the eligible collection at 1901. The lower boundary of 1602 is simply the earliest publication year present in this sample, reflecting the natural historical depth of KBR's holdings. Together, these dates frame a 300-year window of European print culture and define the temporal scope of every visualisation on this site.</p>    
             </div>
