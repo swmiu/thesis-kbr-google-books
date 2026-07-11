@@ -67,8 +67,9 @@ function loadPage(pageName) {
                     <img src="assets/images/banner-1.jpg" alt="Introduction to the Project">
                 </picture>
             </div>
-            <div class="chart-description">
+            
             <h2>Project Overview</h2>
+            <div class="chart-description">
                 <p>The Royal Library of Belgium (KBR) is the national scientific library of Belgium, which holds about eight million objects reflecting the cultural and historical heritage of the country. In 2022, KBR formalised a partnership with Google Books to digitise a large portion of its collections, covering works from the 17th to the end of the 19th century, and make them freely accessible worldwide via both Google Books and KBR's online catalogue. Over the three-year project period from 2023 to June 2026, approximately 100,000* document units were sent to Google Books for digitisation.</p>
                 <p>This website presents the results of a thesis project based on the digitisation effort. In the framework of the Advanced Master's program in Digital Humanities at KU Leuven, the author completed an internship at KBR's Google Books project team from March to June 2026, acquiring the practice of catalogography from scratch. From retrieving books from the stacks to verifying and enriching catalogue metadata following the RDA (Resource Description and Access) guidelines, the author collected the metadata from the physical historic objects before further processing and analyzing it with a distant-reading approach. This integrated knowledge of the patterns and potential challenges of the metadata helped the author to make key design decisions to answer the research question.</p>
             </div>
@@ -81,7 +82,7 @@ function loadPage(pageName) {
 
             <h2>About This Dataset</h2>
             <div class="chart-description">
-                <p>The 1,000 records analysed here represent a stratified random sample drawn from 86,636 catalogue entries updated by the team. The dataset was filtered to retain only two main collection sections: M-SLZ (Salle de Lecture Générale, general reading room collection, approx. 81%) and M-RP (Réserve Précieuse, rare works predating Belgian independence in 1830, approx. 19%), which yielded 86,567 records in the final dataset. As all sampled records had been manually verified and enriched by team members during the project, the dataset benefits from a higher level of metadata quality.</p>    
+                <p>The 1,000 records analysed here represent a stratified random sample drawn from 86,636 catalogue entries updated by the team. The dataset was filtered to retain only two main collection sections: M-SLZ (<em>Salle de Lecture Générale</em>, general reading room collection, approx. 81%) and M-RP (<em>Réserve Précieuse</em>, rare works predating Belgian independence in 1830, approx. 19%), which yielded 86,567 records in the final dataset. As all sampled records had been manually verified and enriched by team members during the project, the dataset benefits from a higher level of metadata quality.</p>    
             </div>
             
             <h2>Temporal scope of 1602–1901</h2>
