@@ -91,7 +91,7 @@ function loadPage(pageName) {
             </div>
         `,
         
-        'temporal_patterns': `
+        'year_distribution': `
             <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Temporal Patterns</h1>
             <div class="page-banner">
                 <picture>
