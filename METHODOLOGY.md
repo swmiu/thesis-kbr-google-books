@@ -20,7 +20,7 @@
   * **Book ID (IDN)**: Extracted from MARC field `001` (Control Number) as the primary key (`book_id`) for each bibliographic record.  
   * **Title**: Extracted from MARC field `245`.  
   * **Year**: Extracted strictly from MARC field `008` positions `07–10` (Date 1\) to capture the primary and initial publication year. While certain records in the collection indicate multi-year publication spans via Date 2 (MARC `008` positions `11–14`), this pipeline deliberately focuses on the initial year of publication. This strategic decision aligns with the core research question regarding the chronological trends of cultural production, ensures statistical consistency across all analytical metrics, and effectively prevents the double-counting of single bibliographic entities in temporal distributions.  
-  * **Language**: Extracted from the first occurrence of subfield `041 $a`. If a record contains more than one language value within `041 $a`, it is systematically categorized under a unified string as `"multiple languages"`. This heuristic decision streamlines linguistic aggregation during data visualization and adheres to the **Europeana convention** for multi-lingual metadata schema mapping, thereby optimizing collection-level statistical representation while respecting international digital cultural heritage standards.  
+  * **Language**: Extracted from the first occurrence of subfield `041 $a`. If a record contains more than one language value within `041 $a`, it is systematically categorized under a unified string as `"multiple languages"`. This heuristic decision streamlines linguistic aggregation during data visualization, thereby optimizing collection-level statistical representation.  
   * **Cities (Multi-valued Relational Extraction)**: Extracted from MARC field `264 $a` (Place of publication). Since historical books frequently feature multi-centered publication networks (e.g., co-published across multiple historical cities), field `264 $a` can contain multiple values per record. To map these spatial trajectories without violating database normalization standards (3NF), a many-to-many relation is established using a dedicated bridge table.  
   * **Countries (Multi-valued Relational Extraction)**: Extracted from MARC field `044 $a` (Country of publication code). All extracted country codes were manually verified against the official Library of Congress MARC Code List for Countries to ensure empirical accuracy and eliminate historical code ambiguities. Similar to cities, a bibliographic item can represent co-publications spanning multiple geopolitical entities, so a many-to-many bridge table is implemented.
   * **Publishers (Complex Relational Extraction)**: To maintain authority control over corporate and personal entities, the pipeline bypasses the raw transcription strings in `264 $b`. Instead, it conducts a cross-field diagnostic sweep across fields `100`, `110`, `700`, `710`, and `720`. It extracts the character string from subfield `$a`(Name) **only if** the corresponding subfield `$4` (Relator Code) equals `"pbl"` (Publisher). Given that historical editions frequently involve multiple co-publishers, this multi-valued entity requires a dedicated relational bridge structure.  
@@ -62,7 +62,7 @@
 
 #### **STEP 3: INTEGRATE (Relational Data Pipeline Merging)**
 
-* **Input Data**: 7 relational and enriched CSV tables derived from Steps 1 & 2 (`books.csv`, `book_cities.csv`, `cities_cleaned.csv`, `book_countries.csv`, `countries.csv`, `book_publishers.csv`, `publishers_cleaned.csv`), and the Python reference module country_mapping.py.  
+* **Input Data**: 6 relational and enriched CSV tables derived from Steps 1 & 2 (`books.csv`, `book_cities.csv`, `cities_cleaned.csv`, `book_countries.csv`, `book_publishers.csv`, `publishers_cleaned.csv`), and the Python reference module country_mapping.py.  
 * **Development Tools**: Python (`pandas`).  
 * **Country Code Reference Dictionary**: MARC 21 044 country codes (2–3 character format) are resolved against the Library of Congress country code registry ([https://www.loc.gov/marc/countries/cou\_home.html](https://www.loc.gov/marc/countries/cou_home.html)). All codes present in the dataset are manually verified and mapped to canonical country names in a reference dictionary, ensuring complete geographical resolution without loss of provenance.  
 * **Merging & Integration Workflow**:
@@ -74,7 +74,7 @@ To ensure data integrity during the integration of authority-controlled entities
 * **Data Dimension Strategy**: 
   To preserve the multifaceted nature of library metadata, this pipeline generates five modular, domain-specific analytical tables rather than a single denormalized table. This prevents cartesian product inflation (where multi-valued fields like cities and publishers would cause row count distortion).
   * **Pipeline 1**: Year Analytics (Temporal Dimension): Standardizes `year` via casting to `Int64`, filtering invalid NULL/zero entries. Produces a 987-record dataset (1602–1901) for frequency distribution.
-  * **Pipeline 2**: Language Analytics (Linguistic Dimension): Direct extraction from field 041 $a; categorizes multi-lingual records as "multiple languages" per Europeana conventions.
+  * **Pipeline 2**: Language Analytics (Linguistic Dimension): Direct extraction from field 041 $a; categorizes multi-lingual records as "multiple languages".
   * **Pipeline 3**: Country Analytics (Geopolitical Dimension): Aggregates 1,014 one-to-many relationships, identifying 26 unique countries. Multi-country publications are preserved as distinct rows to represent co-publication networks.
   * **Pipeline 4**: Publisher Analytics (Commercial Dimension): Syntactic cleaning applied to 476 authority-controlled relationships. 1,024-row dataset maintains multi-publisher associations, preserving the commercial diversity of the collection.
   * **Pipeline 5**: City Analytics (Geospatial Dimension): 1,073-row dataset mapping raw MARC locations to standardized Wikidata coordinates. 98% geospatial coverage (1,052/1,073) enables precise cartographic representation. 
@@ -83,7 +83,7 @@ To ensure data integrity during the integration of authority-controlled entities
 
 #### **STEP 4: VISUALIZE (Multi-dimensional Dashboard Generation)**
 
-* **Input Data**: Six integrated analytical CSVs from Step 3 (`year_analytical.csv`, `language_analytical.csv`, `country_analytical.csv`, `publisher_analytical.csv`, `city_map_filtered.csv`).  
+* **Input Data**: 5 integrated analytical CSVs from Step 3 (`year_analytical.csv`, `language_analytical.csv`, `country_analytical.csv`, `publisher_analytical.csv`, `city_map_filtered.csv`).  
 * **Development Tools**: Python (`Plotly`, `Folium`).  
 * **Analytical Dimensions & Plot Types, and Algorithmic Logic:**  
   1. **Temporal Analysis**: Year Distribution — Plotly Bar/Histogram illustrating shifting publication outputs based strictly on the primary year captured from `008 pos. 07-10`. *Data handling*: To prevent statistical distortion from multi-valued row expansion, the dataframe is programmatically de-duplicated using `df.drop_duplicates(subset=['book_id'])` before rendering.  
