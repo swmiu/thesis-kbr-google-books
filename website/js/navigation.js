@@ -91,12 +91,12 @@ function loadPage(pageName) {
             </div>
         `,
         
-        'temporal_framework': `
-            <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Temporal Framework</h1>
+        'temporal_patterns': `
+            <h1 style="position: absolute; left: -9999px;">KBR Google Books Analysis - Temporal Patterns</h1>
             <div class="page-banner">
                 <picture>
                     <source media="(max-width: 767px)" srcset="assets/images/m-banner-2.PNG">
-                    <img src="assets/images/banner-2.jpg" alt="Temporal Framework: Year Distribution">
+                    <img src="assets/images/banner-2.jpg" alt="Temporal Patterns: Year Distribution">
                 </picture>
             </div>
             <div class="chart-container">
@@ -122,7 +122,7 @@ function loadPage(pageName) {
             <div class="chart-description">
                 <h2>Language Distribution</h2>
                 <p>This sample gives us a look into the language diversity of the library's collection. Among 10 distinct languages, the major proportion (65.5%) of French reflects the library's institutional identity and the historical dominance of French within Belgium and the intellectual circle during the 19th century. The two other official languages of Belgium, German and Dutch, follow at a distance at 9.2% and 8.8% respectively. Latin (2.8%) marks the presence of older scholarly and ecclesiastical works in the collection.</p>
-                <p>Beyond these four, the sample spans a further six "foreign" languages across multiple language families: English (5.3%), Italian (4.3%), Spanish (1.8%), Portuguese (0.5%), Russian (0.4%), and Swedish (0.1%), pointing to the breadth of KBR's acquisition scope beyond the French-speaking world. One thing to note is a small number of records (1.3%) carrying more than one language code and are grouped as "multiple languages" following the <em>Europeana</em> convention. The interactive legend allows readers to hover on individual languages for details.</p>
+                <p>Beyond these four, the sample spans a further six "foreign" languages across multiple language families: English (5.3%), Italian (4.3%), Spanish (1.8%), Portuguese (0.5%), Russian (0.4%), and Swedish (0.1%), pointing to the breadth of KBR's acquisition scope beyond the French-speaking world. One thing to note is a small number of records (1.3%) carrying more than one language code and are grouped as "multiple languages". The interactive legend allows readers to hover on individual languages for details.</p>
             </div>
         `,
         
