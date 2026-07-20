@@ -6,7 +6,7 @@ A data-driven analysis of KBR's (Royal Library of Belgium) Google Books digitiza
 
 ## Research Scope
 
-Using MARC 21 metadata exported from KBR's Syracus catalogue, this project analyses the digitized collection across four dimensions: temporal distribution (1602-1901), linguistic diversity (11 language categories, including "multiple languages"), publisher market share and language profiles (374 distinct authority-controlled publishers), and geospatial scope (26 countries, 189 cities). A proportional stratified sample preserves the ratio between general holdings (M-SLZ, 81%) and rare/precious materials (M-RP, 19%).
+Using MARC 21 metadata exported from KBR's Syracuse catalogue, this project analyses the digitized collection across four dimensions: temporal distribution (1602-1901), linguistic diversity (11 language categories, including "multiple languages"), publisher market share and language profiles (374 distinct authority-controlled publishers), and geospatial scope (26 countries, 189 cities). A proportional stratified sample preserves the ratio between general holdings (M-SLZ, 81%) and rare/precious materials (M-RP, 19%).
 
 ## Repository Structure
 

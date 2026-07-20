@@ -192,7 +192,7 @@ function loadPage(pageName) {
             </div>
             <div class="chart-description">
                 <h2>Publishing Hubs</h2>
-                <p>The interactive map provides a closer look on the geographical dimension by laying out 189 distinct publication cities across Europe and beyond. However, the major publishing centres remain in Europe. Paris (264) and Brussels (192) dominate by a wide margin, reflecting the French-language dominance of the collection. Ghent (49), London (35), Antwerp (25), Liège (24), and Leipzig (21) form a secondary tier of active publishing centres. over over any circle to see the city name and publication count.</p>
+                <p>The interactive map provides a closer look on the geographical dimension by laying out 189 distinct publication cities across Europe and beyond. However, the major publishing centres remain in Europe. Paris (264) and Brussels (192) dominate by a wide margin, reflecting the French-language dominance of the collection. Ghent (49), London (35), Antwerp (25), Liège (24), and Leipzig (21) form a secondary tier of active publishing centres. Hover over any circle to see the city name and publication count.</p>
             </div>
         `,
         
