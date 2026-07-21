@@ -68,7 +68,7 @@ To avoid visual noise of single-title publishers, the chart displays publishers 
 
 ### Publisher Language Distribution (Stacked Bar)
 
-This chart is based on the same publisher subset as the treemap of Publisher Market Share, ensuring both visualisations draw from a consistent corpus. It explores the linguistic dimension of these core publishers. While the size of the sample is relatively limited, several patterns can still be observed. Houses such as H. Manceaux and Baillière seem to specialize in French-language publications. Others show a broader reach: Librairie Hachette & Cie spans French and Latin, while A. Siffer and I. Vanderpoorten published in both Dutch and French. German-language publishers such as J. F. Richter and C. G. Lüderitz'Sche Verlagsbuchhandlung are the main publishers of German books within this French-dominant landscape.
+This chart is based on the same publisher subset as the treemap of Publisher Market Share above, ensuring both visualisations draw from a consistent corpus. It explores the linguistic dimension of these core publishers. While the size of the sample is relatively limited, several patterns can still be observed. Houses such as H. Manceaux and Baillière contribute exclusively French-language publications in the sample subset. Others show a broader reach: Librairie Hachette & Cie spans French and Latin, while A. Siffer and I. Vanderpoorten published in both Dutch and French. German-language publishers such as J. F. Richter and C. G. Lüderitz'Sche Verlagsbuchhandlung are the main publishers of German books within this sample. It should be noted that this observation is limited to this specific corpus and does not represent the complete publishing history of these houses.
 
 ---
 
