@@ -34,18 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function loadPage(pageName) {
     const pageContent = document.getElementById('pageContent');
     
-    // Banner color mapping for 8 pages
-    const pageColors = {
-        'introduction': '#3D6B52',
-        'temporal_framework': '#D4A4A0',
-        'language_distribution': '#F4D547',
-        'publisher_market': '#A64E7C',
-        'publisher_language': '#A64E7C',
-        'country_distribution': '#4BA3D6',
-        'publishing_hubs': '#E8956E',
-        'methodology': '#1A3A5C'
-    };
-    
     // Update nav link active color to match banner
     document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.remove('active');
