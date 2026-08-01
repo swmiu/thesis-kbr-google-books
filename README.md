@@ -1,12 +1,12 @@
 # KBR × Google Books Digitization: Metadata Analysis
 
-A data-driven analysis of KBR's (Royal Library of Belgium) Google Books digitization project corpus, examining 1,000 bibliographic records sampled from 86,636 document units (IDN documents). This project forms the practical component of an Advanced Master's thesis in Digital Humanities at KU Leuven (2025-2026).
+A data-driven analysis of KBR's (Royal Library of Belgium) Google Books digitization project corpus, examining 1,000 bibliographic records sampled from a deduplicated pool of 68,036 unique bibliographic records (originally 86,636 document units). This project forms the practical component of an Advanced Master's thesis in Digital Humanities at KU Leuven (2025-2026).
 
 **Live website**: [thesis-kbr-google-books.vercel.app](https://thesis-kbr-google-books.vercel.app)
 
 ## Research Scope
 
-Using MARC 21 metadata exported from KBR's Syracuse catalogue, this project analyses the digitized collection across four dimensions: temporal distribution (1602-1901), linguistic diversity (11 language categories, including "multiple languages"), publisher market share and language profiles (374 distinct authority-controlled publishers), and geospatial scope (26 countries, 189 cities). A proportional stratified sample preserves the ratio between general holdings (M-SLZ, 81%) and rare/precious materials (M-RP, 19%).
+Using MARC 21 metadata exported from KBR's Syracuse catalogue, this project analyses the sample across four dimensions: temporal distribution (1602-1901), linguistic diversity (11 language categories, including "multiple languages"), publisher market share and language profiles (374 distinct authority-controlled publishers), and geospatial scope (26 countries, 189 cities). A proportional stratified sample of 1,000 records was drawn from a deduplicated pool of 68,036 unique records, allocating 810 to M-SLZ and 190 to M-RP, following the 81.1% / 18.9% ratio observed in the source file before deduplication.
 
 ## Repository Structure
 
@@ -21,7 +21,7 @@ thesis-kbr-google-books/
 │   └── 4_visualize_step4.ipynb       ← Step 4: Chart generation
 ├── data/
 │   ├── raw/                          ← Step 1 outputs + cleaning intermediates
-│   ├── cleaned/                      ← Step 2 outputs (standardized entities)
+│   ├── cleaned/                      ← Step 2 outputs (standardised entities)
 │   ├── integrated/                   ← Step 3 outputs (analytical CSVs)
 │   ├── openrefine_projects/          ← OpenRefine project archives
 │   └── visualizations/               ← Step 4 outputs (interactive HTML charts)
@@ -38,7 +38,7 @@ thesis-kbr-google-books/
 
 ## Data Pipeline
 
-The pipeline follows a five-step modular architecture, with each step producing independently verifiable outputs:
+The pipeline follows a six-step modular architecture, with each step producing independently verifiable outputs:
 
 1. **Sample** (notebook 0): Proportional stratified sampling from KBR's operational inventory
 2. **Extract** (notebook 1): MARCXML parsing into 7 relational CSV tables (3NF schema)
@@ -74,7 +74,7 @@ Banner illustrations by Yung-Heng Wong.
 
 ## AI Tools Disclosure
 
-The author developed this project using Claude (Anthropic) and Gemini (Google) as development tools throughout an iterative workflow. AI tools were used for code generation, debugging, web development, and documentation drafting. The author initiated all tasks, evaluated and revised AI-generated outputs, and retained full responsibility for all analytical decisions, research design, and academic interpretations.
+This project was developed using Claude (Anthropic) and Gemini (Google) as assistive tools for iterative development, including code generation, debugging, methodology discussion, work documentation, and writing refinement. The results of this project remain the full responsibility of the author.
 
 ## License
 
