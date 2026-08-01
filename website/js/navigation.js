@@ -232,6 +232,9 @@ function loadPage(pageName) {
             <p>The six HTML chart files were integrated into a static website built with HTML, CSS, and JavaScript, deployed on Vercel via GitHub. Each chart is embedded as an iframe, allowing individual visualisations to be updated independently.</p>
             <p>Since the six charts are already rich in colour and diverse in shapes, the website body adopts a neutral, low-key colour scheme with warm tones to keep the user's attention on the data. Jost was used for headings, with Source Serif 4 for body text, both loaded via Google Fonts. The page banners are custom hand-drawn illustrations by Yung-Heng Wong, integrated using the HTML picture element to serve optimised images for desktop and mobile users.</p>
             <p>Text and background colour combinations were validated using the WebAIM Contrast Checker against the WCAG 2.1 Level AA contrast minimum. Following a basic accessibility audit, the heading hierarchy was corrected to ensure proper nesting. The layout adapts across desktop, tablet, and mobile breakpoints; on narrow viewports, chart containers enable horizontal scrolling to preserve chart readability without distorting the visualisations.</p>
+
+            <h2>AI Tools Disclosure</h2>
+            <p>This project was developed using Claude (Anthropic) and Gemini (Google) as assistive tools for iterative development, including code generation, debugging, methodology discussion, work documentation, and writing refinement. The results of this project remain the full responsibility of the author.</p>
             `
     };
     
