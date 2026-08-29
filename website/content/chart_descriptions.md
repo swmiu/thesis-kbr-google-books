@@ -88,49 +88,51 @@ This interactive map provides a closer look on the geographical dimension by lay
 
 ### Data Pipeline: From MARCXML to Visualisation
 
-#### STEP 0: SAMPLE
+To transform the 1,000 MARCXML bibliographic records into an interactive dashboard website, a data pipeline was created using Python Jupyter Notebooks and Openrefine. The pipeline comprises six stages, from sampling to web deployment.
 
-On 23 April 2026, the internship mentor exported 86,636 document units from KBR's internal Google Books Project management application, drawn from the "Digitise by Google Books" category, which contains bibliographic entries whose metadata has been reviewed and updated manually by project team members.
+#### STEP 0: DATA ACQUISITION AND SAMPLING
 
-Sampling was restricted to the two main collection sections: M-SLZ (*Magasin Salle de Lecture Générale*, General Reading Room stacks) with 70,230 records (81.1%), and M-RP (*Magasin Réserve Précieuse*, Precious Works stacks) with 16,337 records (18.9%), totalling 86,567 records. The remaining 69 records came from minor sections and were excluded due to their very small share and heterogeneous metadata formats.
+On 23 April 2026, the internship mentor exported the source file from KBR’s internal Google Books Project management application. The exported data was drawn specifically from the “Digitise by Google Books” category, which contains bibliographic entries whose metadata has been reviewed and updated manually by Google Books Project team members, ensuring a higher data quality.
 
-The data was then deduplicated at IDN level, as the source listed records at the level of individual volumes or copies, leaving 68,036 unique records. A proportional stratified random sample of 1,000 records was drawn, allocating 810 to M-SLZ and 190 to M-RP, with a fixed random seed to ensure full reproducibility. The resulting IDN list was submitted to KBR's Bibliographic Information Agency, who exported the corresponding MARC 21 XML records from the catalogue system (Syracuse).
+Sampling was restricted to the two main collection sections: M-SLZ (*Magasin Salle de Lecture Générale*, General Reading Room stacks) with 70,230 records (81.1%), and M-RP (*Magasin Réserve Précieuse*, Precious Works stacks) with 16,337 records (18.9%), totalling 86,567 records. The remaining 69 records came from minor sections and were excluded due to their very small share (< 0.1%) and heterogeneous metadata formats.
 
-#### STEP 1: EXTRACT
+The data was then deduplicated at IDN level, as the source listed records at the level of individual volumes or copies, leaving 68,036 unique records. A proportional stratified random sample of 1,000 records was drawn, allocating 810 to M-SLZ and 190 to M-RP, with a fixed random seed to ensure full reproducibility. This step resulted in a list of 1,000 unique IDNs. The internship mentor then coordinated with colleagues to export the corresponding MARCXML records from KBR’s catalogue system (Syracuse) based on this list. The final exported MARCXML file serves as the input for Step 1.
 
-The 1,000 MARCXML records were parsed using Python's ElementTree library, extracting structured fields into seven relational CSV files following the Third Normal Form (3NF) principle: a core catalogue table (`books.csv`) holding one-to-one attributes, and three pairs of bridge and entity tables for cities, countries, and publishers. This architecture prevents cartesian product inflation when multi-valued fields are later merged, and allows every analytical table to be independently audited.
+#### STEP 1: EXTRACTION
 
-For most fields, extraction was straightforward: the book identifier from `001`, the title from `245 $a`, cities from `264 $a`, and country codes from `044 $a`. Three fields required extra logic.
+The 1,000 MARCXML records were parsed using Python’s ElementTree library, going through each `<record>` element in the XML file to extract structured fields into seven relational CSV files. The extraction logic was designed to handle both one-to-one attributes and multi-valued relationships, following the Third Normal Form (3NF) principle.
 
-**Publication year** is drawn from `008` positions 07–10 (Date 1). Where this field yields no valid date, `264 $c` serves as a fallback, recovering 4 of the 17 initially null records. The remaining 13 records were excluded from temporal analysis but kept for the linguistic and geographic dimensions, yielding a final total of 987 datable records spanning 1602 to 1901.
+For most fields, extraction was straightforward: the book identifier from `001`, the title from `245 $a`, cities from `264 $a`, and country codes from `044 $a`. Three fields required extra logic,namely the publication year, publisher, and language.
 
-**Publisher names** are extracted from authority-controlled fields (`100`, `110`, `700`, `710`, `720`), taking subfield `$a` only where `$4="pbl"`, rather than from field `264 $b`. The field `264 $b` is a transcription field which records names exactly as they appear on the title page, without any assignment of roles such as publisher and printer, whereas the authority-controlled fields explicitly identify the entity's role and link to a standardised entity. This yielded publisher information for 452 of the 1,000 records, a coverage rate of 45.2%, prioritising consistent data quality over breadth.
+**Publication year** was drawn from `008` positions 07–10 (Date 1). While Date 1 marks the beginning year and positions 11–14 (Date 2) mark the end year for works published over a span of time, Date 1 was prioritised in this research to focus on the first appearance of the work. Where this field yields no valid date, `264 $c` serves as a fallback, recovering 4 of the 17 initially null records. The remaining 13 records were excluded from temporal analysis but kept for the linguistic and geographic dimensions, yielding a final total of 987 datable records spanning 1602 to 1901.
 
-**Language** is extracted from `041 $a`. Records containing multiple language values are consolidated under a single "multiple languages" category, which aligns with the ISO 639-2 standard code `mul` and prevents duplicate counting in the proportional distribution.
+**Publisher names** were extracted from authority-controlled fields (`100`, `110`, `700`, `710`, `720`), taking subfield `$a` only where `$4="pbl"`, rather than from field `264 $b`. The field `264 $b` is a transcription field which records names exactly as they appear on the title page, without any assignment of roles such as publisher and printer, whereas the authority-controlled fields explicitly identify the entity's role and link to a standardised entity. This yielded publisher information for 452 of the 1,000 records, a coverage rate of 45.2%, prioritising consistent data quality over breadth.
 
-#### STEP 2: CLEAN
+**Language classification** Language codes were extracted from `041 $a`. Records containing multiple language values are consolidated under a single "multiple languages" category, which aligns with the ISO 639-2 standard code `mul`.
 
-The three entity tables underwent different approaches depending on the characteristics of the metadata and the ultimate visualisation goals.
+#### STEP 2: CLEANING
 
-**Cities** required the most work, as city names were drawn from the transcription field `264 $a`, where information was recorded faithfully from the title page. Names can therefore appear in any language and in historical forms, including Latin, and the field also allowed cataloguers to enter descriptive text and editorial symbols. A multi-layer approach in Python consolidated multilingual "place unknown" phrases, removed prepositions and narrative phrases such as "A Bruxelles" and "Tot Brussel", and mapped Latin names to their modern forms, reducing 270 raw entries to 238 unique cleaned values.
+After creating the required CSVs, the three entity tables underwent different approaches depending on the characteristics of the metadata and the ultimate visualisation goals.
+
+**Cities** required the most work, as city names were drawn from the transcription field `264 $a`, where information was recorded faithfully from the title page of the physical book. Therefore, city names can appear in any language and in historical forms, including their names in Latin, and the field also allowed cataloguers to enter descriptive text and editorial symbols. A multi-layer approach in Python consolidated multilingual "place unknown" phrases, removed prepositions and narrative phrases such as "A Bruxelles" and mapped Latin names to their modern forms, reducing 270 raw entries to 238 unique cleaned values.
 
 City names were then loaded into OpenRefine for reconciliation against Wikidata. Ambiguous cases, such as same-name cities in different countries, required manual verification against the original MARCXML records. Coordinates were retrieved through the "Add columns from reconciled values" feature, which queries Wikidata properties for each matched entity. Of the 270 entries, 262 were successfully reconciled; the remaining 8 retain null coordinate values rather than speculative ones.
 
-**Publishers**, already more standardised by nature, required a lighter approach: `[s.n.]` (*sine nomine*, meaning no publisher) was standardised to Unknown, and punctuation, white spaces, bracketed supplementary content, and professional role suffixes were removed, with the conjunction "et" unified to "&". This consolidated 376 raw entries into 374 cleaned forms.
+**Publishers**, already more standardised by nature, required a lighter approach: `[s.n.]` (*sine nomine*, meaning no publisher) was standardised to "Unknown," and punctuation, white spaces, bracketed supplementary content, and professional role suffixes were removed, with the conjunction "et" unified to "&". This consolidated 376 raw entries into 374 cleaned forms.
 
 **Country codes** were verified against the Library of Congress MARC Code List for Countries and mapped to their full English names via a manually verified Python dictionary, with regional codes grouped into single country entries to avoid fragmentation in the visualisation.
 
-#### STEP 3: INTEGRATE
+#### STEP 3: INTEGRATION
 
 The cleaned CSVs were merged into analytical tables using left joins, joining the core catalogue to the relevant bridge table and then to the cleaned reference table.
 
 Year and language are one-to-one attributes stored in `books.csv`, so these tables naturally contain one row per book. Country, city, and publisher are multi-valued relationships drawn from bridge tables, meaning a book published across different countries or cities, or by more than one publisher, appears in multiple rows. This was an intentional design, as they represent real bibliographic relationships rather than meaningless duplicates. A filtered city table retaining only rows with valid coordinates was exported separately for the map.
 
-This step also introduced a density-adapted periodisation scheme for the publisher treemap, reflecting the concentration of publisher records observed during 1861–1890 rather than imposing uniform time intervals.
+This step also created a temporal periodisation scheme for the publisher treemap, reflecting the concentration of publisher records observed during 1861–1890 rather than imposing uniform time intervals.
 
-#### STEP 4: VISUALISE
+#### STEP 4: VISUALISATION
 
-Six interactive visualisations were generated using Plotly and Folium, exported as standalone responsive HTML files with interactive tooltips. All follow a colour palette that echoes KBR's official website, with visual consistency and readability as the two main considerations.
+Six interactive visualisations were generated using Plotly and Folium, exported as standalone responsive HTML files with interactive tooltips. The choice of chart type for each dimension was driven by the respective analytical question and the structure of the data as well as the visual emphasis the author wanted to convey to the readers. All charts follow a colour palette that echoes KBR's official website, with visual consistency and readability as the two main considerations.
 
 The **year distribution** is presented as a line chart with a filled area beneath the curve. A range slider allows readers to zoom into any period of interest across the 300-year span.
 
@@ -138,19 +140,23 @@ The **language distribution** uses a pie chart rather than a bar chart, as the a
 
 The **country distribution** is a horizontal bar chart ranking 26 countries by publication volume, with full country names presented without truncation or rotation. A book co-published in Belgium and France contributes counts to both countries, as the research interest lies in the geographic scope of publication.
 
-The **publisher treemap** presents the relative place of each publisher in the market through a three-level hierarchy, from period overview to individual publisher to individual book title. To avoid hundreds of nearly invisible tiles, a threshold of at least two publications within a given period was implemented, retaining the top 30 period-publisher segments by volume. As a result, the 1600–1750 period was left off the chart, leaving five periods on display.
+The **publisher treemap** presents the relative place of each publisher in the market, from period overview to individual publisher to individual book title. To avoid hundreds of nearly invisible tiles, a threshold of at least two publications within a given period was implemented, retaining the top 30 period-publisher segments by volume.
 
-The **publisher language profile** replaced an earlier plan for a temporal heatmap, which contained too little colour variation to yield any meaningful pattern, as too few publishers were active across two or more periods. The stacked horizontal bar chart introduces a genuinely distinct dimension instead, showing whether individual publishers tend to specialise in a single language or were more multilingual. It reuses the identical filtering logic and publisher subset as the treemap.
+The **publisher language profile** uses a stacked horizontal bar chart to observe whether individual publishers tend to specialise in a single language or were more multilingual. This chart reuses the identical filtering logic and publisher subset as the treemap, ensuring both publisher visualisations were based on the same subset of the sample. The language colours match those used in the language pie chart to maintain coherent visual experience. 
 
-The **cities map** is an interactive Folium map built from the coordinates harvested through Wikidata reconciliation. Each city is represented as a circle marker whose radius is scaled by the square root of its publication count, so that the perceived area of each marker remains proportional to the volume, with a minimum of 4 pixels to ensure that even single-publication cities remain visible and clickable, and a maximum of 30 pixels. Of 1,073 city rows, 1,052 (98%) carry valid coordinates.
+The **cities map** is an interactive Folium map built from the coordinates harvested through Wikidata reconciliation. Each city is represented as a circle marker whose radius is scaled by the square root of its publication count, so that the perceived area of each marker remains proportional to the volume, with a minimum of 4 pixels to ensure that even single-publication cities remain visible and clickable.
 
-#### STEP 5: DEPLOY
+#### STEP 5: WEBSITE AND DEPLOYMENT
 
-The six HTML chart files were integrated into a static website built with HTML, CSS, and JavaScript, deployed on Vercel via GitHub. Each chart is embedded as an iframe, allowing individual visualisations to be updated independently.
+The six HTML chart files were integrated into a static website built with HTML, CSS, and JavaScript, deployed on Vercel via GitHub. Each chart is embedded as an iframe within the page layout for easier integration. The website uses a sidebar navigation structure with six sections corresponding to the analytical dimensions.
 
-Since the six charts are already rich in colour and diverse in shapes, the website body adopts a neutral, low-key colour scheme with warm tones to keep the user's attention on the data. Jost was used for headings, with Source Serif 4 for body text, both loaded via Google Fonts. The page banners are custom hand-drawn illustrations by Yung-Heng Wong, integrated using the HTML `<picture>` element to serve optimised images for desktop and mobile users.
+The visual design of the website centred on one key consideration: since the six charts are already rich in colour and diverse in shapes, the website body adopts a neutral, low-key colour scheme with warm tones for the content background and sidebar, paired with a clean and minimalist layout that avoids competing with the charts for visual attention. The same minimalist aesthetic was also applied to typography. Jost was used for headings, with Source Serif 4 for body text, both loaded via Google Fonts.
 
-Text and background colour combinations were validated using the WebAIM Contrast Checker against the WCAG 2.1 Level AA contrast minimum. Following a basic accessibility audit, the heading hierarchy was corrected to ensure proper nesting. The layout adapts across desktop, tablet, and mobile breakpoints; on narrow viewports, chart containers enable horizontal scrolling to preserve chart readability without distorting the visualisations.
+The page banners are custom illustrations by Yung-Heng Wong, added to introduce the theme of the project. They were integrated using the HTML `<picture>` element to serve optimised images for desktop and mobile users.
+
+The layout adapts across desktop, tablet, and mobile breakpoints; on narrow viewports, chart containers enable horizontal scrolling to preserve chart readability without distorting the visualisations.
+
+During development, text and background colour combinations were validated using the WebAIM Contrast Checker against the WCAG 2.1 Level AA contrast minimum. Finally, following a basic accessibility audit, the heading hierarchy was corrected to ensure proper nesting. 
 
 #### AI Tools Disclosure
 
