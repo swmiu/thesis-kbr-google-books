@@ -78,4 +78,6 @@ This project was developed using Claude (Anthropic) and Gemini (Google) as assis
 
 ## License
 
+The MIT License applies to the source code only. Banner illustrations by Yung-Heng Wong are excluded and all rights reserved.
+
 See [LICENSE](LICENSE) for details.
